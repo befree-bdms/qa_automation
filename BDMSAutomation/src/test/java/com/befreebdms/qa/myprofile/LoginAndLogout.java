@@ -1,4 +1,4 @@
-package com.befreebdms.qa;
+package com.befreebdms.qa.myprofile;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
