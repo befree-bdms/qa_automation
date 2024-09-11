@@ -1,4 +1,4 @@
-package com.befreebdms.qa.myprofile;
+package com.befreebdms.qa;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -29,12 +29,10 @@ public class MyHolidayWorking extends Base {
 		driver.findElement(By.xpath("//input[@id='username']")).sendKeys("admin");
 		driver.findElement(By.xpath("//input[@type='password']")).sendKeys("123456");
 		driver.findElement(By.xpath("//span[@class='p-button-label'][1]")).click();
-		
 		Thread.sleep(2000);
-
-
-		
-		
+		driver.findElement(By.xpath("//span[text()='My Profile'][1]")).click();
+		driver.findElement(By.xpath("//span[text()='My Holiday Working']")).click();
+		driver.findElement(By.xpath("//span[text()='Add Record']")).click();
 	}
 	
 	@AfterMethod
@@ -45,38 +43,23 @@ public class MyHolidayWorking extends Base {
 	@Test (priority=1)
  	public void verifyAddRecordForHolidayWorking() throws InterruptedException {
 	
-		
-		driver.findElement(By.xpath("//span[text()='My Profile'][1]")).click();
-		
-		driver.findElement(By.xpath("//span[text()='My Holiday Working']")).click();
-		
-		driver.findElement(By.xpath("//span[text()='Add Record']")).click();
-		
 		driver.findElement(By.xpath("//p-dropdown[@formcontrolname='location_id']")).click();
-		
 		driver.findElement(By.xpath("//input[@class='p-dropdown-filter p-inputtext p-component']")).sendKeys("Pune");
-		
 		driver.findElement(By.xpath("//p-dropdownitem[@class='p-element ng-star-inserted']")).click();
 		driver.findElement(By.xpath("//p-calendar[@formcontrolname='date']")).click();
-		
-		Thread.sleep(2000);
+//		Thread.sleep(2000);
 		selectDateIncalendar("15", "August", "2025");
 		
 		/******************************************************/
-		
-		
 		driver.findElement(By.xpath("//p-calendar[@formcontrolname='start_time']")).click();
-		
+		driver.findElement(By.xpath("//p-calendar[@formcontrolname='start_time']//input[contains(@class, 'ng-tns-')]")).sendKeys("20:00");
+//		Thread.sleep(1000);
 		driver.findElement(By.xpath("//p-calendar[@formcontrolname='end_time']")).click();
-		
-				
+		driver.findElement(By.xpath("//p-calendar[@formcontrolname='end_time']//input[contains(@class, 'ng-tns-')]")).sendKeys("22:00");
 		driver.findElement(By.xpath("//p-dropdown[@formcontrolname='entity_id']")).click();
-				
 		driver.findElement(By.xpath("//input[@class='p-dropdown-filter p-inputtext p-component']")).sendKeys("Brightgreen Pty Ltd");
 		driver.findElement(By.xpath("//p-dropdownitem[@class='p-element ng-star-inserted']")).click();
-		
 		driver.findElement(By.xpath("//textarea[@formcontrolname='notes']")).sendKeys("Yes");
-		
 		driver.findElement(By.xpath("//span[text()='Save']")).click();
 		
 	}

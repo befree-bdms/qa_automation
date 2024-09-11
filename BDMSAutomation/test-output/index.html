@@ -39,7 +39,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-Suite" class="navigator-link">
-              <span class="suite-name border-skipped">Suite</span>
+              <span class="suite-name border-passed">Suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -50,7 +50,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Suite" class="navigator-link ">
-                    <span>C:\Users\Nagnath.g\eclipse-workspace\.metadata\BDMSAUTO.zip_expanded\BDMSAutomation\src\test\resource\testng.xml</span>
+                    <span>C:\Users\Nagnath.g\git\qa_automation\BDMSAutomation\src\test\resource\testng.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -92,36 +92,41 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">4 methods,  4 skipped,  </span>
+                    <span class="method-stats">5 methods,   5 passed</span>
                   </li>
                   <li>
-                    <span class="method-list-title skipped">Skipped methods</span>
-                    <span class="show-or-hide-methods skipped">
-                      <a href="#" panel-name="suite-Suite" class="hide-methods skipped suite-Suite"> (hide)</a> <!-- hide-methods skipped suite-Suite -->
-                      <a href="#" panel-name="suite-Suite" class="show-methods skipped suite-Suite"> (show)</a> <!-- show-methods skipped suite-Suite -->
+                    <span class="method-list-title passed">Passed methods</span>
+                    <span class="show-or-hide-methods passed">
+                      <a href="#" panel-name="suite-Suite" class="hide-methods passed suite-Suite"> (hide)</a> <!-- hide-methods passed suite-Suite -->
+                      <a href="#" panel-name="suite-Suite" class="show-methods passed suite-Suite"> (show)</a> <!-- show-methods passed suite-Suite -->
                     </span>
-                    <div class="method-list-content skipped suite-Suite">
+                    <div class="method-list-content passed suite-Suite">
                       <span>
-                        <img src="skipped.png" width="3%"/>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.befreebdms.qa.myprofile.MyHolidayWorking" class="method navigator-link" hash-for-method="verifyAddRecordForHolidayWorking">verifyAddRecordForHolidayWorking</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-Suite" title="com.befreebdms.qa.myprofile.ApplyLeave" class="method navigator-link" hash-for-method="verifyApplyCasualLeave">verifyApplyCasualLeave</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
-                        <img src="skipped.png" width="3%"/>
+                        <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-Suite" title="com.befreebdms.qa.myprofile.ApplyLeave" class="method navigator-link" hash-for-method="verifyApplyCompOffLeave">verifyApplyCompOffLeave</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
-                        <img src="skipped.png" width="3%"/>
+                        <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-Suite" title="com.befreebdms.qa.myprofile.ApplyLeave" class="method navigator-link" hash-for-method="verifyApplyMaternityLeave">verifyApplyMaternityLeave</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
-                        <img src="skipped.png" width="3%"/>
+                        <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-Suite" title="com.befreebdms.qa.myprofile.ApplyLeave" class="method navigator-link" hash-for-method="verifyApplySickLeave">verifyApplySickLeave</a> <!-- method navigator-link -->
                       </span>
                       <br/>
-                    </div> <!-- method-list-content skipped suite-Suite -->
+                    </div> <!-- method-list-content passed suite-Suite -->
                   </li>
                 </ul>
               </div> <!-- suite-section-content -->
@@ -133,9 +138,24 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Suite" class="panel Suite">
-          <div class="suite-Suite-class-skipped">
+          <div class="suite-Suite-class-passed">
             <div class="main-panel-header rounded-window-top">
-              <img src="skipped.png"/>
+              <img src="passed.png"/>
+              <span class="class-name">com.befreebdms.qa.myprofile.MyHolidayWorking</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="verifyAddRecordForHolidayWorking">
+                  </a> <!-- verifyAddRecordForHolidayWorking -->
+                  <span class="method-name">verifyAddRecordForHolidayWorking</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Suite-class-passed -->
+          <div class="suite-Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
               <span class="class-name">com.befreebdms.qa.myprofile.ApplyLeave</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
@@ -144,28 +164,6 @@
                   <a name="verifyApplyCasualLeave">
                   </a> <!-- verifyApplyCasualLeave -->
                   <span class="method-name">verifyApplyCasualLeave</span>
-                  <div class="stack-trace">org.openqa.selenium.ElementNotInteractableException: element not interactable
-  (Session info: chrome=128.0.6613.114)
-Build info: version: &apos;4.4.0&apos;, revision: &apos;e5c75ed026a&apos;
-System info: host: &apos;BF0020530413&apos;, ip: &apos;10.60.12.180&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;22.0.1&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [112fc6e846a4672fadd53f185b5cb551, clickElement {id=f.C64B57885A1ADDC97E23FE2D0120E302.d.3073CF345E0583728C5C5E28E12BEFAA.e.97}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 128.0.6613.114, chrome: {chromedriverVersion: 128.0.6613.119 (6e439cfca4d..., userDataDir: C:\Users\Nagnath.g\AppData\...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:54826}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:54826/devtoo..., se:cdpVersion: 128.0.6613.114, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on WINDOWS (112fc6e846a4672fadd53f185b5cb551)] -&gt; xpath: //span[contains(text(),&apos;My Leaves&apos;)]]
-Session ID: 112fc6e846a4672fadd53f185b5cb551
-	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:519)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
-	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
-	at com.befreebdms.qa.myprofile.ApplyLeave.setUp(ApplyLeave.java:44)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
-... Removed 32 stack frames
-</div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -173,28 +171,6 @@ Session ID: 112fc6e846a4672fadd53f185b5cb551
                   <a name="verifyApplyCompOffLeave">
                   </a> <!-- verifyApplyCompOffLeave -->
                   <span class="method-name">verifyApplyCompOffLeave</span>
-                  <div class="stack-trace">org.openqa.selenium.ElementNotInteractableException: element not interactable
-  (Session info: chrome=128.0.6613.114)
-Build info: version: &apos;4.4.0&apos;, revision: &apos;e5c75ed026a&apos;
-System info: host: &apos;BF0020530413&apos;, ip: &apos;10.60.12.180&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;22.0.1&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [112fc6e846a4672fadd53f185b5cb551, clickElement {id=f.C64B57885A1ADDC97E23FE2D0120E302.d.3073CF345E0583728C5C5E28E12BEFAA.e.97}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 128.0.6613.114, chrome: {chromedriverVersion: 128.0.6613.119 (6e439cfca4d..., userDataDir: C:\Users\Nagnath.g\AppData\...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:54826}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:54826/devtoo..., se:cdpVersion: 128.0.6613.114, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on WINDOWS (112fc6e846a4672fadd53f185b5cb551)] -&gt; xpath: //span[contains(text(),&apos;My Leaves&apos;)]]
-Session ID: 112fc6e846a4672fadd53f185b5cb551
-	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:519)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
-	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
-	at com.befreebdms.qa.myprofile.ApplyLeave.setUp(ApplyLeave.java:44)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
-... Removed 32 stack frames
-</div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -202,28 +178,6 @@ Session ID: 112fc6e846a4672fadd53f185b5cb551
                   <a name="verifyApplyMaternityLeave">
                   </a> <!-- verifyApplyMaternityLeave -->
                   <span class="method-name">verifyApplyMaternityLeave</span>
-                  <div class="stack-trace">org.openqa.selenium.ElementNotInteractableException: element not interactable
-  (Session info: chrome=128.0.6613.114)
-Build info: version: &apos;4.4.0&apos;, revision: &apos;e5c75ed026a&apos;
-System info: host: &apos;BF0020530413&apos;, ip: &apos;10.60.12.180&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;22.0.1&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [112fc6e846a4672fadd53f185b5cb551, clickElement {id=f.C64B57885A1ADDC97E23FE2D0120E302.d.3073CF345E0583728C5C5E28E12BEFAA.e.97}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 128.0.6613.114, chrome: {chromedriverVersion: 128.0.6613.119 (6e439cfca4d..., userDataDir: C:\Users\Nagnath.g\AppData\...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:54826}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:54826/devtoo..., se:cdpVersion: 128.0.6613.114, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on WINDOWS (112fc6e846a4672fadd53f185b5cb551)] -&gt; xpath: //span[contains(text(),&apos;My Leaves&apos;)]]
-Session ID: 112fc6e846a4672fadd53f185b5cb551
-	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:519)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
-	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
-	at com.befreebdms.qa.myprofile.ApplyLeave.setUp(ApplyLeave.java:44)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
-... Removed 32 stack frames
-</div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -231,36 +185,14 @@ Session ID: 112fc6e846a4672fadd53f185b5cb551
                   <a name="verifyApplySickLeave">
                   </a> <!-- verifyApplySickLeave -->
                   <span class="method-name">verifyApplySickLeave</span>
-                  <div class="stack-trace">org.openqa.selenium.ElementNotInteractableException: element not interactable
-  (Session info: chrome=128.0.6613.114)
-Build info: version: &apos;4.4.0&apos;, revision: &apos;e5c75ed026a&apos;
-System info: host: &apos;BF0020530413&apos;, ip: &apos;10.60.12.180&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;22.0.1&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [112fc6e846a4672fadd53f185b5cb551, clickElement {id=f.C64B57885A1ADDC97E23FE2D0120E302.d.3073CF345E0583728C5C5E28E12BEFAA.e.97}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 128.0.6613.114, chrome: {chromedriverVersion: 128.0.6613.119 (6e439cfca4d..., userDataDir: C:\Users\Nagnath.g\AppData\...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:54826}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:54826/devtoo..., se:cdpVersion: 128.0.6613.114, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on WINDOWS (112fc6e846a4672fadd53f185b5cb551)] -&gt; xpath: //span[contains(text(),&apos;My Leaves&apos;)]]
-Session ID: 112fc6e846a4672fadd53f185b5cb551
-	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:519)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
-	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
-	at com.befreebdms.qa.myprofile.ApplyLeave.setUp(ApplyLeave.java:44)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
-... Removed 32 stack frames
-</div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Suite-class-skipped -->
+          </div> <!-- suite-Suite-class-passed -->
         </div> <!-- panel Suite -->
         <div panel-name="test-xml-Suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\Nagnath.g\eclipse-workspace\.metadata\BDMSAUTO.zip_expanded\BDMSAutomation\src\test\resource\testng.xml</span>
+            <span class="header-content">C:\Users\Nagnath.g\git\qa_automation\BDMSAutomation\src\test\resource\testng.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -273,6 +205,7 @@ Session ID: 112fc6e846a4672fadd53f185b5cb551
   &lt;test thread-count=&quot;1&quot; name=&quot;Test&quot;&gt;
     &lt;classes&gt;
       &lt;class name=&quot;com.befreebdms.qa.myprofile.ApplyLeave&quot;/&gt;
+      &lt;class name=&quot;com.befreebdms.qa.myprofile.MyHolidayWorking&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Test --&gt;
 &lt;/suite&gt; &lt;!-- Suite --&gt;
@@ -286,7 +219,7 @@ Session ID: 112fc6e846a4672fadd53f185b5cb551
           <div class="main-panel-content rounded-window-bottom">
             <ul>
               <li>
-                <span class="test-name">Test (1 class)</span>
+                <span class="test-name">Test (2 classes)</span>
               </li>
             </ul>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -312,28 +245,32 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(4);
+data.addRows(5);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'verifyApplySickLeave')
+data.setCell(0, 1, 'verifyApplyMaternityLeave')
 data.setCell(0, 2, 'com.befreebdms.qa.myprofile.ApplyLeave')
-data.setCell(0, 3, 0);
+data.setCell(0, 3, 12885);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'verifyApplyMaternityLeave')
+data.setCell(1, 1, 'verifyApplySickLeave')
 data.setCell(1, 2, 'com.befreebdms.qa.myprofile.ApplyLeave')
-data.setCell(1, 3, 0);
+data.setCell(1, 3, 11587);
 data.setCell(2, 0, 2)
 data.setCell(2, 1, 'verifyApplyCasualLeave')
 data.setCell(2, 2, 'com.befreebdms.qa.myprofile.ApplyLeave')
-data.setCell(2, 3, 0);
+data.setCell(2, 3, 8783);
 data.setCell(3, 0, 3)
 data.setCell(3, 1, 'verifyApplyCompOffLeave')
 data.setCell(3, 2, 'com.befreebdms.qa.myprofile.ApplyLeave')
-data.setCell(3, 3, 0);
+data.setCell(3, 3, 7240);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'verifyAddRecordForHolidayWorking')
+data.setCell(4, 2, 'com.befreebdms.qa.myprofile.MyHolidayWorking')
+data.setCell(4, 3, 7167);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 0 ms</span>
+              <span class="suite-total-time">Total running time: 47 seconds</span>
               <div id="times-div-Suite">
               </div> <!-- times-div-Suite -->
             </div> <!-- times-div -->
@@ -361,23 +298,68 @@ return data;
             <div class="chronological-class">
               <div class="chronological-class-name">com.befreebdms.qa.myprofile.ApplyLeave</div> <!-- chronological-class-name -->
               <div class="configuration-method before">
-                <img src="failed.png">
-                </img>
                 <span class="method-name">setUp</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">verifyApplyCasualLeave</span>
+                <span class="method-start">10538 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">19328 ms</span>
+              </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUp</span>
-                <span class="method-start">19360 ms</span>
+                <span class="method-start">21371 ms</span>
               </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">verifyApplyCompOffLeave</span>
+                <span class="method-start">31102 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">38357 ms</span>
+              </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUp</span>
-                <span class="method-start">19398 ms</span>
+                <span class="method-start">39087 ms</span>
               </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">verifyApplySickLeave</span>
+                <span class="method-start">48473 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">60063 ms</span>
+              </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUp</span>
-                <span class="method-start">19433 ms</span>
+                <span class="method-start">60743 ms</span>
               </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">verifyApplyMaternityLeave</span>
+                <span class="method-start">70274 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">83162 ms</span>
+              </div> <!-- configuration-method after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.befreebdms.qa.myprofile.MyHolidayWorking</div> <!-- chronological-class-name -->
+              <div class="configuration-method before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">83643 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">verifyAddRecordForHolidayWorking</span>
+                <span class="method-start">91230 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">98402 ms</span>
+              </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
       </div> <!-- main-panel-root -->

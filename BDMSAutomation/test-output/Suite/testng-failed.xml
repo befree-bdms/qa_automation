@@ -8,11 +8,8 @@
     <classes>
       <class name="com.befreebdms.qa.myprofile.ApplyLeave">
         <methods>
-          <include name="verifyApplySickLeave"/>
-          <include name="verifyApplyCompOffLeave"/>
           <include name="setUp"/>
           <include name="tearDown"/>
-          <include name="verifyApplyCasualLeave"/>
           <include name="verifyApplyMaternityLeave"/>
         </methods>
       </class> <!-- com.befreebdms.qa.myprofile.ApplyLeave -->

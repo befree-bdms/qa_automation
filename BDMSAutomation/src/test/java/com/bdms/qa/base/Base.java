@@ -60,7 +60,7 @@ public class Base {
 		String fromCurrentMonth=driver.findElement(By.xpath("//button[contains(@class, 'p-datepicker-month')]")).getText();
 		String fromCurrentYear=driver.findElement(By.xpath("//button[contains(@class, 'p-datepicker-year')]")).getText();
 		while(!(fromCurrentMonth.equals(month) && fromCurrentYear.equals(year))) {
-			//Until expected date is not coming we will click on Next button on the calendar
+
 			driver.findElement(By.xpath("//button[contains(@class,'p-ripple p-element p-datepicker-next')]")).click();
 			fromCurrentMonth=driver.findElement(By.xpath("//button[contains(@class, 'p-datepicker-month')]")).getText();
 			fromCurrentYear=driver.findElement(By.xpath("//button[contains(@class, 'p-datepicker-year')]")).getText();
@@ -73,23 +73,25 @@ public class Base {
 			
 			System.out.println("You have Selected the Invalid Date "+day+"/"+month+"/"+year+"/");
 		}
-		//driver.findElement(By.xpath("//td[contains(@class, 'ng-star-inserted')]/span[text()='23']")).click();
+		
 	}
-		
-
-		/*
-		String fromCurrentMonth=driver.findElement(By.xpath("//button[contains(@class, 'p-datepicker-month')]")).getText();
-		String fromCurrentYear=driver.findElement(By.xpath("//button[contains(@class, 'p-datepicker-year')]")).getText();
-		while(!(fromCurrentMonth.equals("August") && fromCurrentYear.equals("2024"))) {
-			//Until expected date is not coming we will click on Next button on the calendar
-			driver.findElement(By.xpath("//button[contains(@class,'p-ripple p-element p-datepicker-next')]")).click();
-			fromCurrentMonth=driver.findElement(By.xpath("//button[contains(@class, 'p-datepicker-month')]")).getText();
-			fromCurrentYear=driver.findElement(By.xpath("//button[contains(@class, 'p-datepicker-year')]")).getText();
+			
+		public void workLocation(String Wlocation, String NWlocation, String foodType) {
+									
+			driver.findElement(By.xpath("//span[@id='pn_id_4_label']")).click();
+			driver.findElement(By.xpath("//input[@class='p-dropdown-filter p-inputtext p-component']")).sendKeys(Wlocation);
+			driver.findElement(By.xpath("//p-dropdownitem[@class='p-element ng-star-inserted']")).click();
+			
+			driver.findElement(By.xpath("//span[@id='pn_id_7_label']")).click();
+			driver.findElement(By.xpath("//input[@class='p-dropdown-filter p-inputtext p-component']")).sendKeys(NWlocation);
+			driver.findElement(By.xpath("//p-dropdownitem[@class='p-element ng-star-inserted']")).click();
+			
+			driver.findElement(By.xpath("//span[@id='pn_id_9_label']")).click();
+			driver.findElement(By.xpath("//input[@class='p-dropdown-filter p-inputtext p-component']")).sendKeys(foodType);
+			driver.findElement(By.xpath("//p-dropdownitem[@class='p-element ng-star-inserted']")).click();
+			
+			
+			driver.findElement(By.xpath("//button[@label='Book my lunch']")).click();
 		}
-		
-		
-		driver.findElement(By.xpath("//td[contains(@class, 'ng-star-inserted')]/span[text()='23']")).click();
-		*/
-	
 	
 }

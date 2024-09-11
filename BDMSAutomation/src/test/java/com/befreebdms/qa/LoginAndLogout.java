@@ -1,4 +1,4 @@
-package com.befreebdms.qa.myprofile;
+package com.befreebdms.qa;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -54,6 +54,8 @@ public class LoginAndLogout extends Base {
 	driver.findElement(By.xpath("//input[@type='password']")).sendKeys(password);
 	driver.findElement(By.xpath("//span[@class='p-button-label'][1]")).click();
 	Assert.assertTrue(driver.findElement(By.xpath("//div[@data-pc-section='detail']/preceding-sibling::div")).isDisplayed());
+	workLocation("GIFT", "GIFT", "Regular");
+	
 	
 	}
 		

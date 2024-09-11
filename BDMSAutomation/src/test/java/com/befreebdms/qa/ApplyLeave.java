@@ -1,4 +1,4 @@
-package com.befreebdms.qa.myprofile;
+package com.befreebdms.qa;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -33,14 +33,28 @@ public class ApplyLeave extends Base{
 	driver.get(prop.getProperty("url")); //from get properties field	
 	//driver=initializeBrowserAndOpenApplicationURL("chrome");  //This Line is setup in Base Class [If any doubt go and check the Base class]
 	//driver.get("http://10.10.20.41/auth/login");
-	driver.findElement(By.xpath("//input[@id='username']")).sendKeys("darshant");
+	
+	
+	
+	
+	
+	driver.findElement(By.xpath("//input[@id='username']")).sendKeys("mayur");
 	driver.findElement(By.xpath("//input[@type='password']")).sendKeys("123456");
 	driver.findElement(By.xpath("//span[@class=\"p-button-label\"][1]")).click();
-	Thread.sleep(2000);
+	//Thread.sleep(2000);
+	
+	/*WebElement workLocation=driver.findElement(By.xpath("//span[@id='pn_id_5_header_title']"));
+	boolean wl=workLocation.isDisplayed();
+	if(wl) {
+	driver.findElement(By.xpath("//span[text()=\"Don't book my lunch\"]")).click();	
+	//workLocation("GIFT SEZ", "GIFT SEZ", "Jain Food");
+	}*/
 	//WebElement Myprofile=wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='My Profile'][1]")));
 	//Myprofile.click();
+	Thread.sleep(2000);
+
 	driver.findElement(By.xpath("//span[text()='My Profile'][1]")).click();
-	Thread.sleep(1000);
+	Thread.sleep(2000);
 	driver.findElement(By.xpath("//span[contains(text(),'My Leaves')]")).click();
 	Thread.sleep(1000);
 	driver.findElement(By.xpath("//span[text()='Apply Leave']")).click();
@@ -90,6 +104,7 @@ public class ApplyLeave extends Base{
  	public void verifyApplyCompOffLeave() throws InterruptedException  {
 	
 	driver.findElement(By.xpath("//*[@class='p-float-label']/child::p-dropdown[@formcontrolname='leave_type']")).click();
+	driver.findElement(By.xpath("//input[@class=\"p-dropdown-filter p-inputtext p-component\"]")).sendKeys("Comp-off");
 	driver.findElement(By.xpath("//li[@aria-label='Comp-off']//span[text()='Comp-off']")).click();
 	
 	//------------------Select time for From Date-----------------------------------
@@ -123,6 +138,7 @@ public class ApplyLeave extends Base{
  	public void verifyApplySickLeave() throws InterruptedException {
 	
 	driver.findElement(By.xpath("//*[@class='p-float-label']/child::p-dropdown[@formcontrolname='leave_type']")).click();
+	driver.findElement(By.xpath("//input[@class=\"p-dropdown-filter p-inputtext p-component\"]")).sendKeys("Sick");
 	driver.findElement(By.xpath("//li[@aria-label='Sick']//span[text()='Sick']")).click();
 	
 	//-----------------------------Select time for From Date---------------------------------
@@ -156,12 +172,14 @@ public class ApplyLeave extends Base{
 		
 		
 		driver.findElement(By.xpath("//*[@class='p-float-label']/child::p-dropdown[@formcontrolname='leave_type']")).click();
+		driver.findElement(By.xpath("//input[@class=\"p-dropdown-filter p-inputtext p-component\"]")).sendKeys("Maternity");
 		driver.findElement(By.xpath("//span[text()='Maternity']")).click();
+		
 		driver.findElement(By.xpath("//p-calendar[@formcontrolname='from_date']")).click();
-		selectDateIncalendar("6", "September", "2024");
+		selectDateIncalendar("6", "December", "2025");
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//p-calendar[@formcontrolname='to_date']")).click();
-		selectDateIncalendar("10", "September", "2024");
+		selectDateIncalendar("10", "December", "2025");
 		
 		driver.findElement(By.xpath("//p-dropdown[contains(@formcontrolname, 'inform_team')]/child::div")).click();
 		driver.findElement(By.xpath("//span[text()='Yes'] [@class='ng-star-inserted']")).click();
