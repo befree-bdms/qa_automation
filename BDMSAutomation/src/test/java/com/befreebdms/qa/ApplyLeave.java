@@ -18,7 +18,7 @@ public class ApplyLeave extends Base{
 		super();  //This method will get the all properties from Base class
 	
 	}
-	zzz
+	
 	public WebDriver driver;
 	SoftAssert softAssert=new SoftAssert();
 
