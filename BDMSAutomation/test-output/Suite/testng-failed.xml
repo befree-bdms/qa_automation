@@ -6,13 +6,15 @@
   </listeners>
   <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="com.befreebdms.qa.myprofile.ApplyLeave">
+      <class name="com.befreebdms.qa.administrator.Designation">
         <methods>
-          <include name="setUp"/>
+          <include name="verifyGroupManagerRights" invocation-numbers="16 5 6 7 8 9 10 11 12 13 14 15"/>
           <include name="tearDown"/>
-          <include name="verifyApplyMaternityLeave"/>
+          <include name="verifyAssociateReviewLead"/>
+          <include name="verifyAssociateTechnicalHead"/>
+          <include name="setUp"/>
         </methods>
-      </class> <!-- com.befreebdms.qa.myprofile.ApplyLeave -->
+      </class> <!-- com.befreebdms.qa.administrator.Designation -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->
