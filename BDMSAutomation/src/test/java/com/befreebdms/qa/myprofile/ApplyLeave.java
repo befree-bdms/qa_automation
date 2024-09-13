@@ -63,7 +63,10 @@ public class ApplyLeave extends Base{
 	
 	@AfterMethod
 	public void tearDown() {
-	driver.quit();
+		driver.findElement(By.xpath("//button[@pstyleclass='@next']")).click();
+		driver.findElement(By.xpath("//li[@id='LOGOUT']")).click();
+	
+		driver.quit();
 	}
 	
 	

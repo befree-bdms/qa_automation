@@ -55,7 +55,11 @@ public class Designation extends Base{
 	
 	@AfterMethod
 	public void tearDown() {
-	driver.quit();
+	
+		driver.findElement(By.xpath("//button[@pstyleclass='@next']")).click();
+		driver.findElement(By.xpath("//li[@id='LOGOUT']")).click();
+	
+		driver.quit();
 	
 	}
 	
@@ -68,8 +72,6 @@ public class Designation extends Base{
 		driver.findElement(By.xpath("//div[@class='filter-field flex-grow-1']//input")).sendKeys("Group Manager");
 		driver.findElement(By.xpath("//div[@class='flex gap-2 ng-star-inserted']")).click();	
 		driver.findElement(By.xpath("//span[@class='p-element p-dropdown-label p-inputtext ng-star-inserted']")).click();
-		//driver.findElement(By.xpath("//input[@class='p-dropdown-filter p-inputtext p-component']")).sendKeys("Page Rights");
-		//driver.findElement(By.xpath("//p-dropdownitem[@class='p-element ng-star-inserted']")).click();
 		
 		driver.findElement(By.xpath("//input[@class='p-inputtext p-component p-element w-full']")).sendKeys(page_rights);
 		Thread.sleep(2000);
@@ -84,7 +86,7 @@ public class Designation extends Base{
 		driver.findElement(By.xpath("//p-checkbox[@id='selectAllIsAddEdit']")).click();
 		
 		driver.findElement(By.xpath("//span[text()='Update']")).click();
-		Thread.sleep(6000);
+		Thread.sleep(1000);
 	}
 	
 	@Test (priority=2, dataProvider="validCredentialsSupplier")
@@ -95,8 +97,6 @@ public class Designation extends Base{
 		driver.findElement(By.xpath("//div[@class='filter-field flex-grow-1']//input")).sendKeys("Associate Technical Head");
 		driver.findElement(By.xpath("//span[@class='pi pi-wrench p-button-icon ng-star-inserted']")).click();	
 		driver.findElement(By.xpath("//span[@class='p-element p-dropdown-label p-inputtext ng-star-inserted']")).click();
-		//driver.findElement(By.xpath("//input[@class='p-dropdown-filter p-inputtext p-component']")).sendKeys("Page Rights");
-		//driver.findElement(By.xpath("//p-dropdownitem[@class='p-element ng-star-inserted']")).click();
 		
 		driver.findElement(By.xpath("//input[@class='p-inputtext p-component p-element w-full']")).sendKeys(page_rights);
 		Thread.sleep(2000);
@@ -111,7 +111,7 @@ public class Designation extends Base{
 		driver.findElement(By.xpath("//p-checkbox[@id='selectAllIsAddEdit']")).click();
 		
 		driver.findElement(By.xpath("//span[text()='Update']")).click();
-		Thread.sleep(6000);
+		Thread.sleep(1000);
 	}
 	
 	
@@ -123,8 +123,6 @@ public class Designation extends Base{
 		driver.findElement(By.xpath("//div[@class='filter-field flex-grow-1']//input")).sendKeys("Associate Review Lead");
 		driver.findElement(By.xpath("//span[@class='pi pi-wrench p-button-icon ng-star-inserted']")).click();	
 		driver.findElement(By.xpath("//span[@class='p-element p-dropdown-label p-inputtext ng-star-inserted']")).click();
-		//driver.findElement(By.xpath("//input[@class='p-dropdown-filter p-inputtext p-component']")).sendKeys("Page Rights");
-		//driver.findElement(By.xpath("//p-dropdownitem[@class='p-element ng-star-inserted']")).click();
 		
 		driver.findElement(By.xpath("//input[@class='p-inputtext p-component p-element w-full']")).sendKeys(page_rights);
 		Thread.sleep(1000);

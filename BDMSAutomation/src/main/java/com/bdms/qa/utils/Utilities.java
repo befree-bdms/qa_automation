@@ -63,7 +63,7 @@ public class Utilities {
 					
 				case NUMERIC:
 					data[i][j]=Integer.toString((int)cell.getNumericCellValue()); break;
-					
+										
 				case BOOLEAN:
 					data[i][j]=cell.getCellType(); break;
 					
