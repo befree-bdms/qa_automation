@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.befreebdms.qa.administrator.Designation">
+      <class name="com.befreebdms.qa.myprofile.ApplyLeave">
         <methods>
-          <include name="tearDown"/>
-          <include name="verifyAssociateReviewLead"/>
           <include name="setUp"/>
+          <include name="tearDown"/>
+          <include name="verifyApplyCasualLeave"/>
         </methods>
-      </class> <!-- com.befreebdms.qa.administrator.Designation -->
+      </class> <!-- com.befreebdms.qa.myprofile.ApplyLeave -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

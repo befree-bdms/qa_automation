@@ -31,7 +31,7 @@ public class Utilities {
 	
 	public static Object[][] getTestDataFromExcel(String sheetName) {
 		
-		File excelFile = new File (System.getProperty("user.dir")+"\\src\\main\\java\\com\\bdms\\qa\\testdata\\bdmsLoginTestData.xlsx");
+		File excelFile = new File (System.getProperty("user.dir")+"\\src\\main\\java\\com\\bdms\\qa\\testdata\\TestData.xlsx");
 		XSSFWorkbook workbook = null;
 		try {
 		FileInputStream fisExcel = new FileInputStream(excelFile);

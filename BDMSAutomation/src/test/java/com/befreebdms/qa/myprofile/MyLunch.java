@@ -37,6 +37,9 @@ public class MyLunch extends Base {
 	
 	@AfterMethod
 	public void tearDown() {
+		
+	driver.findElement(By.xpath("//button[@pstyleclass='@next']")).click();
+	driver.findElement(By.xpath("//li[@id='LOGOUT']")).click();
 	driver.quit();
 	}
 	
@@ -44,7 +47,7 @@ public class MyLunch extends Base {
  	public void verifyAddRecordForMyLunch() throws InterruptedException   {
 				
 		driver.findElement(By.xpath("//p-calendar[@formcontrolname='date']")).click();
-		selectDateIncalendar("12", "September", "2024");
+		selectDateIncalendar("15", "September", "2024");
 		driver.findElement(By.xpath("//p-dropdown[@formcontrolname='user_id']")).click();
 		driver.findElement(By.xpath("//input[@class='p-dropdown-filter p-inputtext p-component']")).sendKeys("Ajay Tanna");
 		driver.findElement(By.xpath("//li[@class='p-ripple p-element p-dropdown-item']")).click();

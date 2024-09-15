@@ -8,13 +8,16 @@ import org.openqa.selenium.support.PageFactory;
 public class LoginPage {
 	
 	WebDriver driver;
-	
+		
+	//Constructor
 		public LoginPage(WebDriver driver) {
 		
 		this.driver=driver;
 		PageFactory.initElements(driver, this);
 	}
 	
+		
+	//Locators
 	@FindBy (xpath="//input[@id='username']")
 	private WebElement userName;
 
@@ -23,6 +26,27 @@ public class LoginPage {
 	
 	@FindBy(xpath="//span[@class='p-button-label'][1]")
 	private WebElement Login;
+	
+	//Action Methods
+	
+	public void setUserName(String user ) {
+		
+		userName.sendKeys(user);		
+	}
+	
+	public void setPassword(String pwd ) {
+		
+		password.sendKeys(pwd);		
+	}
+	
+	public void clickLogin() {
+		
+		Login.click();		
+	}
+	
+	
+	
+	
 	
 	
 

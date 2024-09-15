@@ -29,16 +29,15 @@ public class Designation extends Base{
 		Object[][] data=Utilities.getTestDataFromExcel("Page_Rights");
 		return data;
 		
-	}
+	} 	
 
 	@BeforeMethod 
 	public void setUp() throws InterruptedException {
 	
-	//WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(10));
-
 	driver=initializeBrowserAndOpenApplicationURL(prop.getProperty("browser"));// from get properties Class
 	//driver.get("http://10.10.20.41/auth/login");
-	driver.get(prop.getProperty("url")); //from get properties field	
+	driver.get(prop.getProperty("url")); //from get properties field
+	driver.manage().deleteAllCookies();
 	driver.findElement(By.xpath("//input[@id='username']")).sendKeys("admin");
 	driver.findElement(By.xpath("//input[@type='password']")).sendKeys("123456");
 	driver.findElement(By.xpath("//span[@class=\"p-button-label\"][1]")).click();
@@ -46,9 +45,7 @@ public class Designation extends Base{
 	driver.findElement(By.xpath("//span[text()='Administrator']")).click();
 	Thread.sleep(2000);
 	driver.findElement(By.xpath("//span[text()='Designation']")).click();
-	Thread.sleep(1000);
-	
-	
+	Thread.sleep(2000);
 	
 	
 	}
@@ -74,7 +71,7 @@ public class Designation extends Base{
 		driver.findElement(By.xpath("//span[@class='p-element p-dropdown-label p-inputtext ng-star-inserted']")).click();
 		
 		driver.findElement(By.xpath("//input[@class='p-inputtext p-component p-element w-full']")).sendKeys(page_rights);
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		
 		boolean view=driver.findElement(By.xpath("//p-checkbox[@id='selectAllIsView']")).isSelected();
 		//Add Validation for checkBoxes
@@ -86,7 +83,7 @@ public class Designation extends Base{
 		driver.findElement(By.xpath("//p-checkbox[@id='selectAllIsAddEdit']")).click();
 		
 		driver.findElement(By.xpath("//span[text()='Update']")).click();
-		Thread.sleep(1000);
+		
 	}
 	
 	@Test (priority=2, dataProvider="validCredentialsSupplier")
@@ -99,7 +96,7 @@ public class Designation extends Base{
 		driver.findElement(By.xpath("//span[@class='p-element p-dropdown-label p-inputtext ng-star-inserted']")).click();
 		
 		driver.findElement(By.xpath("//input[@class='p-inputtext p-component p-element w-full']")).sendKeys(page_rights);
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		
 		boolean view=driver.findElement(By.xpath("//p-checkbox[@id='selectAllIsView']")).isSelected();
 		//Add Validation for checkBoxes
@@ -110,8 +107,9 @@ public class Designation extends Base{
 		if(addedit!=true)
 		driver.findElement(By.xpath("//p-checkbox[@id='selectAllIsAddEdit']")).click();
 		
+		Thread.sleep(3000);
 		driver.findElement(By.xpath("//span[text()='Update']")).click();
-		Thread.sleep(1000);
+		
 	}
 	
 	
@@ -137,7 +135,81 @@ public class Designation extends Base{
 		driver.findElement(By.xpath("//p-checkbox[@id='selectAllIsAddEdit']")).click();
 		
 		driver.findElement(By.xpath("//span[text()='Update']")).click();
+		
+	}
+	
+	@Test (priority=4, dataProvider="validCredentialsSupplier")
+ 	public void verifyAssociateQCLead(String page_rights) throws InterruptedException{
+		
+		
+		driver.findElement(By.xpath("//button[@icon='pi pi-filter']")).click();
+		driver.findElement(By.xpath("//div[@class='filter-field flex-grow-1']//input")).sendKeys("Associate QC Lead");
+		driver.findElement(By.xpath("//span[@class='pi pi-wrench p-button-icon ng-star-inserted']")).click();	
+		driver.findElement(By.xpath("//span[@class='p-element p-dropdown-label p-inputtext ng-star-inserted']")).click();
+		
+		driver.findElement(By.xpath("//input[@class='p-inputtext p-component p-element w-full']")).sendKeys(page_rights);
 		Thread.sleep(1000);
+		
+		boolean view=driver.findElement(By.xpath("//p-checkbox[@id='selectAllIsView']")).isSelected();
+		//Add Validation for checkBoxes
+		if(view!=true) 
+		driver.findElement(By.xpath("//p-checkbox[@id='selectAllIsView']")).click();
+		
+		boolean addedit=driver.findElement(By.xpath("//p-checkbox[@id='selectAllIsAddEdit']")).isSelected();
+		if(addedit!=true)
+		driver.findElement(By.xpath("//p-checkbox[@id='selectAllIsAddEdit']")).click();
+		
+		driver.findElement(By.xpath("//span[text()='Update']")).click();
+		
+	}
+	
+	@Test (priority=5, dataProvider="validCredentialsSupplier")
+ 	public void verifyTechnicalHead(String page_rights) throws InterruptedException{
+		
+		
+		driver.findElement(By.xpath("//button[@icon='pi pi-filter']")).click();
+		driver.findElement(By.xpath("//div[@class='filter-field flex-grow-1']//input")).sendKeys("Technical Head");
+		driver.findElement(By.xpath("//span[@class='pi pi-wrench p-button-icon ng-star-inserted']")).click();	
+		driver.findElement(By.xpath("//span[@class='p-element p-dropdown-label p-inputtext ng-star-inserted']")).click();
+		
+		driver.findElement(By.xpath("//input[@class='p-inputtext p-component p-element w-full']")).sendKeys(page_rights);
+		Thread.sleep(1000);
+		
+		boolean view=driver.findElement(By.xpath("//p-checkbox[@id='selectAllIsView']")).isSelected();
+		//Add Validation for checkBoxes
+		if(view!=true) 
+		driver.findElement(By.xpath("//p-checkbox[@id='selectAllIsView']")).click();
+		
+		boolean addedit=driver.findElement(By.xpath("//p-checkbox[@id='selectAllIsAddEdit']")).isSelected();
+		if(addedit!=true)
+		driver.findElement(By.xpath("//p-checkbox[@id='selectAllIsAddEdit']")).click();
+		driver.findElement(By.xpath("//span[text()='Update']")).click();
+		
+	}
+	
+	@Test (priority=6, dataProvider="validCredentialsSupplier")
+ 	public void verifyAssociateQCManager(String page_rights) throws InterruptedException{
+		
+		
+		driver.findElement(By.xpath("//button[@icon='pi pi-filter']")).click();
+		driver.findElement(By.xpath("//div[@class='filter-field flex-grow-1']//input")).sendKeys("Associate QC Manager");
+		driver.findElement(By.xpath("//span[@class='pi pi-wrench p-button-icon ng-star-inserted']")).click();	
+		driver.findElement(By.xpath("//span[@class='p-element p-dropdown-label p-inputtext ng-star-inserted']")).click();
+		
+		driver.findElement(By.xpath("//input[@class='p-inputtext p-component p-element w-full']")).sendKeys(page_rights);
+		
+		
+		boolean view=driver.findElement(By.xpath("//p-checkbox[@id='selectAllIsView']")).isSelected();
+		//Add Validation for checkBoxes
+		if(view!=true) 
+		driver.findElement(By.xpath("//p-checkbox[@id='selectAllIsView']")).click();
+		
+		boolean addedit=driver.findElement(By.xpath("//p-checkbox[@id='selectAllIsAddEdit']")).isSelected();
+		if(addedit!=true)
+		driver.findElement(By.xpath("//p-checkbox[@id='selectAllIsAddEdit']")).click();
+		
+		driver.findElement(By.xpath("//span[text()='Update']")).click();
+		
 	}
 	
 	

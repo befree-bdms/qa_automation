@@ -1,7 +1,11 @@
 package com.befreebdms.qa.myprofile;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -26,7 +30,7 @@ public class ApplyLeave extends Base{
 	@BeforeMethod
 	public void setUp() throws InterruptedException {
 	
-	//WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(10));
+	WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(10));
 
 	driver=initializeBrowserAndOpenApplicationURL(prop.getProperty("browser"));// from get properties Class
 	//driver.get("http://10.10.20.41/auth/login");
@@ -38,7 +42,7 @@ public class ApplyLeave extends Base{
 	
 	
 	
-	driver.findElement(By.xpath("//input[@id='username']")).sendKeys("mayur");
+	driver.findElement(By.xpath("//input[@id='username']")).sendKeys("darshant");
 	driver.findElement(By.xpath("//input[@type='password']")).sendKeys("123456");
 	driver.findElement(By.xpath("//span[@class=\"p-button-label\"][1]")).click();
 	//Thread.sleep(2000);
@@ -51,12 +55,14 @@ public class ApplyLeave extends Base{
 	}*/
 	//WebElement Myprofile=wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='My Profile'][1]")));
 	//Myprofile.click();
-	Thread.sleep(2000);
-
+	//Thread.sleep(2000);
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='My Profile'][1]")));
 	driver.findElement(By.xpath("//span[text()='My Profile'][1]")).click();
-	Thread.sleep(2000);
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[contains(text(),'My Leaves')]")));
+	//Thread.sleep(1000);
 	driver.findElement(By.xpath("//span[contains(text(),'My Leaves')]")).click();
-	Thread.sleep(1000);
+	//Thread.sleep(1000);
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='Apply Leave']")));
 	driver.findElement(By.xpath("//span[text()='Apply Leave']")).click();
 		
 	}
@@ -75,12 +81,12 @@ public class ApplyLeave extends Base{
 	
 	driver.findElement(By.xpath("//*[@class='p-float-label']/child::p-dropdown[@formcontrolname='leave_type']")).click();
 	driver.findElement(By.xpath("//span[text()='Casual']")).click();
-	Thread.sleep(2000);
+	Thread.sleep(1000);
 	
 	driver.findElement(By.xpath("//p-calendar[@formcontrolname='from_date']")).click();
 	selectDateIncalendar("15", "October", "2024");
 	//-------------------------Select time for To Date------------------------------
-	Thread.sleep(2000);
+	Thread.sleep(1000);
 	driver.findElement(By.xpath("//p-calendar[@formcontrolname='to_date']")).click();
 	selectDateIncalendar("15", "October", "2024");
 	
