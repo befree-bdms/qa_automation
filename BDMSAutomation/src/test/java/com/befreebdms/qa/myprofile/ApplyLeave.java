@@ -1,11 +1,7 @@
 package com.befreebdms.qa.myprofile;
 
-import java.time.Duration;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -13,6 +9,8 @@ import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import com.bdms.qa.base.Base;
+import com.bdms.qa.pageobject.HomePage;
+import com.bdms.qa.pageobject.MyLeavesPage;
 
 public class ApplyLeave extends Base{
 	
@@ -25,53 +23,31 @@ public class ApplyLeave extends Base{
 	
 	public WebDriver driver;
 	SoftAssert softAssert=new SoftAssert();
+	
 
 
 	@BeforeMethod
 	public void setUp() throws InterruptedException {
 	
-	WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(10));
-
 	driver=initializeBrowserAndOpenApplicationURL(prop.getProperty("browser"));// from get properties Class
 	//driver.get("http://10.10.20.41/auth/login");
 	driver.get(prop.getProperty("url")); //from get properties field	
-	//driver=initializeBrowserAndOpenApplicationURL("chrome");  //This Line is setup in Base Class [If any doubt go and check the Base class]
-	//driver.get("http://10.10.20.41/auth/login");
-	
-	
-	
-	
-	
-	driver.findElement(By.xpath("//input[@id='username']")).sendKeys("darshant");
-	driver.findElement(By.xpath("//input[@type='password']")).sendKeys("123456");
-	driver.findElement(By.xpath("//span[@class=\"p-button-label\"][1]")).click();
-	//Thread.sleep(2000);
-	
-	/*WebElement workLocation=driver.findElement(By.xpath("//span[@id='pn_id_5_header_title']"));
-	boolean wl=workLocation.isDisplayed();
-	if(wl) {
-	driver.findElement(By.xpath("//span[text()=\"Don't book my lunch\"]")).click();	
-	//workLocation("GIFT SEZ", "GIFT SEZ", "Jain Food");
-	}*/
-	//WebElement Myprofile=wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='My Profile'][1]")));
-	//Myprofile.click();
-	//Thread.sleep(2000);
-	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='My Profile'][1]")));
-	driver.findElement(By.xpath("//span[text()='My Profile'][1]")).click();
-	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[contains(text(),'My Leaves')]")));
-	//Thread.sleep(1000);
-	driver.findElement(By.xpath("//span[contains(text(),'My Leaves')]")).click();
-	//Thread.sleep(1000);
-	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='Apply Leave']")));
-	driver.findElement(By.xpath("//span[text()='Apply Leave']")).click();
 		
+	HomePage homePage=new HomePage(driver);
+	homePage.setUserName("darshant");
+	homePage.setPassword("123456");
+	homePage.clickLogin();
+	Thread.sleep(2000);
+	homePage.clickOnMyProfile();	
+	homePage.clickOnMyLeaves();
+	MyLeavesPage myLeavesPage=new MyLeavesPage(driver);
+	myLeavesPage.clickOnApplyLeave();
 	}
 	
 	@AfterMethod
 	public void tearDown() {
-		driver.findElement(By.xpath("//button[@pstyleclass='@next']")).click();
-		driver.findElement(By.xpath("//li[@id='LOGOUT']")).click();
-	
+		HomePage homePage=new HomePage(driver);
+		homePage.clickOnLogout();
 		driver.quit();
 	}
 	
@@ -79,7 +55,34 @@ public class ApplyLeave extends Base{
 	@Test (priority=1)
  	public void verifyApplyCasualLeave() throws InterruptedException{
 	
-	driver.findElement(By.xpath("//*[@class='p-float-label']/child::p-dropdown[@formcontrolname='leave_type']")).click();
+		MyLeavesPage myLeavesPage=new MyLeavesPage(driver);
+		
+		myLeavesPage.clickOnLeaveType("Casual");
+		myLeavesPage.clickOnFromDate();
+		selectDateIncalendar("15", "October", "2025");
+		Thread.sleep(500);
+		myLeavesPage.clickOnToDate();
+		selectDateIncalendar("15", "October", "2025");
+		myLeavesPage.clickOnInformTeamIncharge("Yes");
+		Thread.sleep(500);
+		myLeavesPage.clickOnWeeklyTaskList("No");
+		Thread.sleep(500);
+		myLeavesPage.clickOnWasThereAnythingDue("Yes");
+		myLeavesPage.clickOnIfDue("Test");
+		myLeavesPage.clickOnReasonForLeave("Test By Nagnath");
+		myLeavesPage.clickOnSave();
+		
+		
+		String msg=driver.findElement(By.xpath("//div[text()='Successfully created']")).getText();
+		Assert.assertEquals(msg, "Successfully created");
+	}	
+	
+
+	
+	
+	/*driver.findElement(By.xpath("//*[@class='p-float-label']/child::p-dropdown[@formcontrolname='leave_type']")).click();
+	driver.findElement(By.xpath("//input[@class=\"p-dropdown-filter p-inputtext p-component\"]")).sendKeys("Casual");
+
 	driver.findElement(By.xpath("//span[text()='Casual']")).click();
 	Thread.sleep(1000);
 	
@@ -107,12 +110,32 @@ public class ApplyLeave extends Base{
 	Assert.assertEquals(msg, "Successfully created");
 	}
 	
-	
+	*/
 	
 	@Test (priority=2)
  	public void verifyApplyCompOffLeave() throws InterruptedException  {
+		
+		MyLeavesPage myLeavesPage=new MyLeavesPage(driver);
+		
+		myLeavesPage.clickOnLeaveType("Comp-off");
+		myLeavesPage.clickOnFromDate();
+		selectDateIncalendar("15", "October", "2025");
+		Thread.sleep(500);
+		myLeavesPage.clickOnToDate();
+		selectDateIncalendar("15", "October", "2025");
+		myLeavesPage.clickOnInformTeamIncharge("Yes");
+		Thread.sleep(500);
+		myLeavesPage.clickOnWeeklyTaskList("No");
+		Thread.sleep(500);
+		myLeavesPage.clickOnWasThereAnythingDue("Yes");
+		myLeavesPage.clickOnIfDue("Test");
+		myLeavesPage.clickOnReasonForLeave("Test By Nagnath");
+		myLeavesPage.clickOnSave();
+		
+		String msg=driver.findElement(By.xpath("//div[text()='Successfully created']")).getText();
+		Assert.assertEquals(msg, "Successfully created");
 	
-	driver.findElement(By.xpath("//*[@class='p-float-label']/child::p-dropdown[@formcontrolname='leave_type']")).click();
+	/*driver.findElement(By.xpath("//*[@class='p-float-label']/child::p-dropdown[@formcontrolname='leave_type']")).click();
 	driver.findElement(By.xpath("//input[@class=\"p-dropdown-filter p-inputtext p-component\"]")).sendKeys("Comp-off");
 	driver.findElement(By.xpath("//li[@aria-label='Comp-off']//span[text()='Comp-off']")).click();
 	
@@ -140,12 +163,32 @@ public class ApplyLeave extends Base{
 	driver.findElement(By.xpath("//input[@formcontrolname=\"anything_due_comments\"]")).sendKeys("Discussed Test");
 	driver.findElement(By.xpath("//textarea[@formcontrolname='leave_reason']")).sendKeys("TestByNagnath");
 	
-	driver.findElement(By.xpath("//span[text()='Save']")).click();
+	driver.findElement(By.xpath("//span[text()='Save']")).click();*/
 	}
 	
 	@Test (priority=3)
  	public void verifyApplySickLeave() throws InterruptedException {
-	
+		
+		MyLeavesPage myLeavesPage=new MyLeavesPage(driver);
+		
+		myLeavesPage.clickOnLeaveType("Sick");
+		myLeavesPage.clickOnFromDate();
+		selectDateIncalendar("15", "October", "2025");
+		Thread.sleep(500);
+		myLeavesPage.clickOnToDate();
+		selectDateIncalendar("15", "October", "2025");
+		myLeavesPage.clickOnInformTeamIncharge("Yes");
+		Thread.sleep(500);
+		myLeavesPage.clickOnWeeklyTaskList("No");
+		Thread.sleep(500);
+		myLeavesPage.clickOnWasThereAnythingDue("Yes");
+		myLeavesPage.clickOnIfDue("Test");
+		myLeavesPage.clickOnReasonForLeave("Test By Nagnath");
+		myLeavesPage.clickOnSave();
+		
+		String msg=driver.findElement(By.xpath("//div[text()='Successfully created']")).getText();
+		Assert.assertEquals(msg, "Successfully created");
+	}/*
 	driver.findElement(By.xpath("//*[@class='p-float-label']/child::p-dropdown[@formcontrolname='leave_type']")).click();
 	driver.findElement(By.xpath("//input[@class=\"p-dropdown-filter p-inputtext p-component\"]")).sendKeys("Sick");
 	driver.findElement(By.xpath("//li[@aria-label='Sick']//span[text()='Sick']")).click();
@@ -175,11 +218,32 @@ public class ApplyLeave extends Base{
 	driver.findElement(By.xpath("//textarea[@formcontrolname='leave_reason']")).sendKeys("TestByNagnath");
 	
 	driver.findElement(By.xpath("//span[text()='Save']")).click();
-	}
+	}*/
+	
 	@Test (priority=4)
 	public void verifyApplyMaternityLeave() throws InterruptedException{
 		
+		MyLeavesPage myLeavesPage=new MyLeavesPage(driver);
 		
+		myLeavesPage.clickOnLeaveType("Maternity");
+		myLeavesPage.clickOnFromDate();
+		selectDateIncalendar("15", "October", "2025");
+		Thread.sleep(500);
+		myLeavesPage.clickOnToDate();
+		selectDateIncalendar("15", "October", "2025");
+		myLeavesPage.clickOnInformTeamIncharge("Yes");
+		Thread.sleep(500);
+		myLeavesPage.clickOnWeeklyTaskList("No");
+		Thread.sleep(500);
+		myLeavesPage.clickOnWasThereAnythingDue("Yes");
+		myLeavesPage.clickOnIfDue("Test");
+		myLeavesPage.clickOnReasonForLeave("Test By Nagnath");
+		myLeavesPage.clickOnSave();
+		
+		String msg=driver.findElement(By.xpath("//div[text()='Successfully created']")).getText();
+		Assert.assertEquals(msg, "Successfully created");
+	}
+	/*
 		driver.findElement(By.xpath("//*[@class='p-float-label']/child::p-dropdown[@formcontrolname='leave_type']")).click();
 		driver.findElement(By.xpath("//input[@class=\"p-dropdown-filter p-inputtext p-component\"]")).sendKeys("Maternity");
 		driver.findElement(By.xpath("//span[text()='Maternity']")).click();
@@ -205,7 +269,7 @@ public class ApplyLeave extends Base{
 		driver.findElement(By.xpath("//span[text()='Save']")).click();
 		String msg=driver.findElement(By.xpath("//div[text()='Successfully created']")).getText();
 		Assert.assertEquals(msg, "Successfully created");
-		}
+		}*/
 	
 	/*@Test (priority=4)
 	public void verifyLeaveTracker() {

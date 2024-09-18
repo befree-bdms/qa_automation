@@ -6,36 +6,20 @@
   </listeners>
   <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="com.befreebdms.qa.myprofile.MyLunch">
-        <methods>
-          <include name="tearDown"/>
-          <include name="setUp"/>
-          <include name="verifyAddRecordForMyLunch"/>
-        </methods>
-      </class> <!-- com.befreebdms.qa.myprofile.MyLunch -->
       <class name="com.befreebdms.qa.myprofile.ApplyLeave">
         <methods>
-          <include name="verifyApplySickLeave"/>
           <include name="setUp"/>
-          <include name="verifyApplyCompOffLeave"/>
           <include name="tearDown"/>
           <include name="verifyApplyMaternityLeave"/>
         </methods>
       </class> <!-- com.befreebdms.qa.myprofile.ApplyLeave -->
-      <class name="com.befreebdms.qa.myprofile.MyHolidayWorking">
-        <methods>
-          <include name="setUp"/>
-          <include name="verifyAddRecordForHolidayWorking"/>
-          <include name="tearDown"/>
-        </methods>
-      </class> <!-- com.befreebdms.qa.myprofile.MyHolidayWorking -->
-      <class name="com.befreebdms.qa.administrator.Designation">
+      <class name="com.befreebdms.qa.myprofile.MyLunch">
         <methods>
           <include name="tearDown"/>
-          <include name="verifyAssociateQCManager"/>
+          <include name="verifyAddRecordForMyLunch"/>
           <include name="setUp"/>
         </methods>
-      </class> <!-- com.befreebdms.qa.administrator.Designation -->
+      </class> <!-- com.befreebdms.qa.myprofile.MyLunch -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->
