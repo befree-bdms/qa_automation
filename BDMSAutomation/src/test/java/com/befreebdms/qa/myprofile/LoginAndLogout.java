@@ -124,12 +124,15 @@ public class LoginAndLogout extends Base {
 	
 	@Test (priority=6)
  	public void verifyLogout()  {
-		HomePage loginPage=new HomePage(driver);
-		loginPage.setUserName("admin");
-		loginPage.setPassword("123456");
-		loginPage.clickLogin();
+		HomePage homePage=new HomePage(driver);
+		
+		homePage.setUserName("nagnathg");
+		homePage.setPassword("123456");
+		homePage.clickLogin();
+		homePage.bookMyLunch.click();
+		
 		//loginPage.clickLogoutOption();
-		loginPage.clickOnLogout();
+		homePage.clickOnLogout();
 		/*
 		
 	driver.findElement(By.xpath("//input[@id='username']")).sendKeys("admin");

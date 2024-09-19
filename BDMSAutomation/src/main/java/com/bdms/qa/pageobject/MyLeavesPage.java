@@ -170,7 +170,7 @@ public class MyLeavesPage  {
 		clickOnLeaveTypeFilter.click();
 	}
 	
-	@FindBy (xpath="//p-calendar[@class=\"p-element p-inputwrapper min-w-7rem ng-tns-c3918063748-81 ng-pristine ng-valid ng-star-inserted ng-touched\"]")
+	@FindBy (xpath="//p-calendar[contains(@class, 'ng-tns-c3918063748-595')]")
 	private WebElement fromLeavePeriod;
 	@FindBy (xpath="//p-calendar[@class=\"p-element p-inputwrapper min-w-7rem ng-tns-c3918063748-82 ng-untouched ng-pristine ng-valid ng-star-inserted\"]")
 	private WebElement toLeavePeriod;

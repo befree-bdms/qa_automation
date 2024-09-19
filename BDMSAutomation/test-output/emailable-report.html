@@ -8,20 +8,23 @@
 <body>
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
-<tr><th colspan="8">Suite</th></tr>
-<tr><td><a href="#t0">Test</a></td><td class="num">5</td><td class="num">0</td><td class="num">0</td><td class="num attn">2</td><td class="num">88,722</td><td></td><td></td></tr>
+<tr><th colspan="8">Default suite</th></tr>
+<tr><td><a href="#t0">Default test</a></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">13,893</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Test &#8212; failed (configuration methods)</th></tr><tr class="failedeven"><td rowspan="1">com.befreebdms.qa.myprofile.MyLunch</td><td><a href="#m0">tearDown</a></td><td rowspan="1">1726702397549</td><td rowspan="1">1064</td></tr><tr><th colspan="4">Test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">com.befreebdms.qa.myprofile.ApplyLeave</td><td><a href="#m1">verifyApplyMaternityLeave</a></td><td rowspan="1">1726702370554</td><td rowspan="1">6932</td></tr><tr class="failedodd"><td rowspan="1">com.befreebdms.qa.myprofile.MyLunch</td><td><a href="#m2">verifyAddRecordForMyLunch</a></td><td rowspan="1">1726702395144</td><td rowspan="1">2299</td></tr><tr><th colspan="4">Test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="3">com.befreebdms.qa.myprofile.ApplyLeave</td><td><a href="#m3">verifyApplyCasualLeave</a></td><td rowspan="1">1726702327385</td><td rowspan="1">7635</td></tr><tr class="passedeven"><td><a href="#m4">verifyApplyCompOffLeave</a></td><td rowspan="1">1726702341466</td><td rowspan="1">6776</td></tr><tr class="passedeven"><td><a href="#m5">verifyApplySickLeave</a></td><td rowspan="1">1726702356302</td><td rowspan="1">6794</td></tr><tr class="passedodd"><td rowspan="1">com.befreebdms.qa.myprofile.ApplyLeaveApproveAndReject</td><td><a href="#m6">verifyApproveLeave</a></td><td rowspan="1">1726702383696</td><td rowspan="1">2379</td></tr><tr class="passedeven"><td rowspan="1">com.befreebdms.qa.myprofile.MyHolidayWorking</td><td><a href="#m7">verifyAddRecordForHolidayWorking</a></td><td rowspan="1">1726702404395</td><td rowspan="1">3968</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Default suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Default test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">com.befreebdms.qa.myprofile.LoginAndLogout</td><td><a href="#m0">verifyLogout</a></td><td rowspan="1">1726724548365</td><td rowspan="1">10550</td></tr></tbody>
 </table>
-<h2>Test</h2><h3 id="m0">com.befreebdms.qa.myprofile.MyLunch#tearDown</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element &lt;button _ngcontent-ng-c1524418810=&quot;&quot; type=&quot;button&quot; pstyleclass=&quot;@next&quot; enterclass=&quot;hidden&quot; enteractiveclass=&quot;scalein&quot; leavetoclass=&quot;hidden&quot; leaveactiveclass=&quot;fadeout&quot; class=&quot;p-element topbar-profile-button p-button p-button-text p-button-raised&quot;&gt;...&lt;/button&gt; is not clickable at point (1277, 27). Other element would receive the click: &lt;div class=&quot;ng-tns-c647991600-88 p-dialog-mask p-component-overlay p-component-overlay-enter p-dialog-mask-scrollblocker&quot; style=&quot;z-index: 1103;&quot;&gt;...&lt;/div&gt;
+<h2>Default test</h2><h3 id="m0">com.befreebdms.qa.myprofile.LoginAndLogout#verifyLogout</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//span[text()=&apos;Book my lunch&apos;]&quot;}
   (Session info: chrome=129.0.6668.58)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
 Build info: version: &apos;4.4.0&apos;, revision: &apos;e5c75ed026a&apos;
 System info: host: &apos;BF0035470123&apos;, ip: &apos;10.60.12.31&apos;, os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;22.0.2&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [a2d7192192261d65d2b52b69c15adf6c, clickElement {id=f.34342C16013C9BB11012529C81DB40CD.d.A62E820E720C4FE09A4EF49BAD95C18E.e.78}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 129.0.6668.58, chrome: {chromedriverVersion: 129.0.6668.58 (81a06fb873a9..., userDataDir: C:\Users\nagnath.g\AppData\...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:63059}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:63059/devtoo..., se:cdpVersion: 129.0.6668.58, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on WINDOWS (a2d7192192261d65d2b52b69c15adf6c)] -&gt; xpath: //button[@pstyleclass=&apos;@next&apos;]]
-Session ID: a2d7192192261d65d2b52b69c15adf6c
+Command: [f853de27e1ec39ed0d4d357520d86a8c, findElement {value=//span[text()=&apos;Book my lunch&apos;], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 129.0.6668.58, chrome: {chromedriverVersion: 129.0.6668.58 (81a06fb873a9..., userDataDir: C:\Users\nagnath.g\AppData\...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:53553}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:53553/devtoo..., se:cdpVersion: 129.0.6668.58, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: f853de27e1ec39ed0d4d357520d86a8c
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
 	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
@@ -29,40 +32,40 @@ Session ID: a2d7192192261d65d2b52b69c15adf6c
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:519)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
-	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
-	at com.befreebdms.qa.myprofile.MyLunch.tearDown(MyLunch.java:41)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:356)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:350)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at jdk.proxy2/jdk.proxy2.$Proxy13.isDisplayed(Unknown Source)
+	at com.befreebdms.qa.myprofile.LoginAndLogout.verifyLogout(LoginAndLogout.java:132)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
-... Removed 33 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m1">com.befreebdms.qa.myprofile.ApplyLeave#verifyApplyMaternityLeave</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: expected [Successfully created] but found []
-	at com.befreebdms.qa.myprofile.ApplyLeave.verifyApplyMaternityLeave(ApplyLeave.java:244)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
-... Removed 31 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m2">com.befreebdms.qa.myprofile.MyLunch#verifyAddRecordForMyLunch</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element &lt;p-dropdown _ngcontent-ng-c2614379591=&quot;&quot; formcontrolname=&quot;user_id&quot; class=&quot;p-element p-inputwrapper ng-untouched ng-pristine ng-invalid has-required-validation&quot;&gt;...&lt;/p-dropdown&gt; is not clickable at point (683, 290). Other element would receive the click: &lt;div class=&quot;p-datepicker-group ng-tns-c3918063748-89 ng-star-inserted&quot;&gt;...&lt;/div&gt;
-  (Session info: chrome=129.0.6668.58)
-Build info: version: &apos;4.4.0&apos;, revision: &apos;e5c75ed026a&apos;
-System info: host: &apos;BF0035470123&apos;, ip: &apos;10.60.12.31&apos;, os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;22.0.2&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [a2d7192192261d65d2b52b69c15adf6c, clickElement {id=f.34342C16013C9BB11012529C81DB40CD.d.A62E820E720C4FE09A4EF49BAD95C18E.e.195}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 129.0.6668.58, chrome: {chromedriverVersion: 129.0.6668.58 (81a06fb873a9..., userDataDir: C:\Users\nagnath.g\AppData\...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:63059}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:63059/devtoo..., se:cdpVersion: 129.0.6668.58, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on WINDOWS (a2d7192192261d65d2b52b69c15adf6c)] -&gt; xpath: //p-dropdown[@formcontrolname=&apos;user_id&apos;]]
-Session ID: a2d7192192261d65d2b52b69c15adf6c
-	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:519)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
-	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
-	at com.befreebdms.qa.myprofile.MyLunch.verifyAddRecordForMyLunch(MyLunch.java:51)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
-... Removed 28 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m3">com.befreebdms.qa.myprofile.ApplyLeave#verifyApplyCasualLeave</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m4">com.befreebdms.qa.myprofile.ApplyLeave#verifyApplyCompOffLeave</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m5">com.befreebdms.qa.myprofile.ApplyLeave#verifyApplySickLeave</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m6">com.befreebdms.qa.myprofile.ApplyLeaveApproveAndReject#verifyApproveLeave</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m7">com.befreebdms.qa.myprofile.MyHolidayWorking#verifyAddRecordForHolidayWorking</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>

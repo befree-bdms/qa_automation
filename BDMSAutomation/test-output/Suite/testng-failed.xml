@@ -6,10 +6,18 @@
   </listeners>
   <test thread-count="5" name="Test(failed)">
     <classes>
+      <class name="com.befreebdms.qa.myprofile.ApplyLeaveApproveAndReject">
+        <methods>
+          <include name="tearDown"/>
+          <include name="setUp"/>
+          <include name="verifyApproveLeave"/>
+        </methods>
+      </class> <!-- com.befreebdms.qa.myprofile.ApplyLeaveApproveAndReject -->
       <class name="com.befreebdms.qa.myprofile.ApplyLeave">
         <methods>
           <include name="setUp"/>
           <include name="tearDown"/>
+          <include name="verifyApplyCasualLeave"/>
           <include name="verifyApplyMaternityLeave"/>
         </methods>
       </class> <!-- com.befreebdms.qa.myprofile.ApplyLeave -->

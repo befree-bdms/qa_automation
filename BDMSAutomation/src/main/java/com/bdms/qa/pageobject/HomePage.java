@@ -16,6 +16,20 @@ public class HomePage {
 	}
 	
 		
+	@FindBy (xpath="//span[text()='Work Location']")
+	private WebElement workLocation;
+	
+	@FindBy (xpath="//span[text()='Book my lunch']")
+	public WebElement bookMyLunch;
+	
+	@FindBy (xpath="//span[text()='Save Location']")
+	private WebElement saveLocation;
+	
+	@FindBy (xpath="//h5[text()='Daily Motivation']")
+	private WebElement txtDailyMotivation;
+	
+	
+		
 	//Locators
 	@FindBy (xpath="//input[@id='username']")
 	private WebElement userName;

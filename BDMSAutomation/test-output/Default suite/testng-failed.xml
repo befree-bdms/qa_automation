@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.befreebdms.qa.myprofile.ApplyLeaveApproveAndReject">
+      <class name="com.befreebdms.qa.myprofile.LoginAndLogout">
         <methods>
-          <include name="tearDown"/>
           <include name="setUp"/>
-          <include name="verifyApproveLeave"/>
+          <include name="verifyLogout"/>
+          <include name="tearDown"/>
         </methods>
-      </class> <!-- com.befreebdms.qa.myprofile.ApplyLeaveApproveAndReject -->
+      </class> <!-- com.befreebdms.qa.myprofile.LoginAndLogout -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
