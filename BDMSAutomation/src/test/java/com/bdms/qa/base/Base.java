@@ -75,6 +75,10 @@ public class Base {
 		}
 		
 	}
+		public void selectTodaysDate() {
+			String todaysdate=driver.findElement(By.xpath("//td[contains(@class, 'today')]")).getText();
+			
+		}
 			
 		public void workLocation(String Wlocation, String NWlocation, String foodType) {
 									

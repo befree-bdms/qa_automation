@@ -13,14 +13,25 @@
           <include name="verifyApproveLeave"/>
         </methods>
       </class> <!-- com.befreebdms.qa.myprofile.ApplyLeaveApproveAndReject -->
-      <class name="com.befreebdms.qa.myprofile.ApplyLeave">
+      <class name="com.befreebdms.qa.workflow.ConferenceRoom">
         <methods>
-          <include name="setUp"/>
           <include name="tearDown"/>
-          <include name="verifyApplyCasualLeave"/>
-          <include name="verifyApplyMaternityLeave"/>
+          <include name="setUp"/>
+          <include name="verifyBookRecord"/>
         </methods>
-      </class> <!-- com.befreebdms.qa.myprofile.ApplyLeave -->
+      </class> <!-- com.befreebdms.qa.workflow.ConferenceRoom -->
+      <class name="com.befreebdms.qa.administrator.Designation">
+        <methods>
+          <include name="verifyTechnicalHead"/>
+          <include name="verifyGroupManagerRights"/>
+          <include name="verifyAssociateQCLead"/>
+          <include name="tearDown"/>
+          <include name="verifyAssociateReviewLead"/>
+          <include name="verifyAssociateQCManager"/>
+          <include name="verifyAssociateTechnicalHead"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- com.befreebdms.qa.administrator.Designation -->
       <class name="com.befreebdms.qa.myprofile.MyLunch">
         <methods>
           <include name="tearDown"/>

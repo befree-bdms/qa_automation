@@ -22,8 +22,16 @@ public class HomePage {
 	@FindBy (xpath="//span[text()='Book my lunch']")
 	public WebElement bookMyLunch;
 	
+	public void clickOnBookLunch() {
+		bookMyLunch.click();
+	}
+	
+	public void clickOnSaveLocation() {
+		workLocation.click();
+	}
+	
 	@FindBy (xpath="//span[text()='Save Location']")
-	private WebElement saveLocation;
+	public WebElement saveLocation;
 	
 	@FindBy (xpath="//h5[text()='Daily Motivation']")
 	private WebElement txtDailyMotivation;
@@ -86,7 +94,19 @@ public class HomePage {
 		myHolidayWorking.click();
 	}
 	
+	@FindBy (xpath="(//span[text()='Workflow'])[1]")
+	private WebElement workflow;
 	
+	public void clickOnWorkflow() {
+		workflow.click();		
+	}
+	
+	@FindBy(xpath="(//span[text()='Conference Room'])[1]")
+	WebElement conferenceRoom;
+	
+	public void clickOnConferenceRoom() {
+		conferenceRoom.click();
+	}
 	
 	
 	

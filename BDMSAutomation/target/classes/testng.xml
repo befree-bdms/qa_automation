@@ -11,8 +11,9 @@
       <class name="com.befreebdms.qa.myprofile.ApplyLeaveApproveAndReject"/>
       <class name="com.befreebdms.qa.myprofile.MyLunch"/>
       <class name="com.befreebdms.qa.myprofile.MyHolidayWorking"/>
-      
-<!--      <class name="com.befreebdms.qa.administrator.Designation"/>  -->
+      <class name="com.befreebdms.qa.administrator.Designation"/> 
+      <class name="com.befreebdms.qa.workflow.ConferenceRoom"/> 
+     
       
     </classes>
   </test> <!-- Test -->

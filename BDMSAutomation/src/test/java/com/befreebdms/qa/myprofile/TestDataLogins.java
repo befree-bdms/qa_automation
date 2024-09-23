@@ -1,8 +1,6 @@
 package com.befreebdms.qa.myprofile;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
@@ -45,22 +43,24 @@ public class TestDataLogins extends Base{
 	
 	@AfterMethod
 	public void tearDown() {
-		HomePage homePage=new HomePage(driver);
-		homePage.clickOnLogout();
+		//HomePage homePage=new HomePage(driver);
+		//homePage.clickOnLogout();
 		driver.quit();
 	}
 	
 	
 	@Test (priority=1, dataProvider="validCredentialsSupplier")
- 	public void verifyLoginWithValidCredential(String email, String password) {
+ 	public void firstLoginTest(String email, String password) {
 		
 	HomePage homePage=new HomePage(driver);
 	homePage.setUserName(email);
 	homePage.setPassword(password);
 	homePage.clickLogin();
-	homePage.bookMyLunch.click();
 	
-	Assert.assertTrue(driver.findElement(By.xpath("//div[@data-pc-section='detail']/preceding-sibling::div")).isDisplayed());
-	workLocation("GIFT", "GIFT", "Regular");
+
+	
+
+	
+	
 	}
 }

@@ -44,20 +44,30 @@ public class LoginAndLogout extends Base {
 	
 	
 	@AfterMethod
-	public void tearDown() {
-	driver.quit();
+	public void tearDown() throws InterruptedException {
+		HomePage homePage=new HomePage(driver);
+		homePage.clickOnLogout();
+		Thread.sleep(3000);
+		driver.quit();
 	}
 	
 	
 	@Test (priority=1, dataProvider="validCredentialsSupplier")
  	public void verifyLoginWithValidCredential(String email, String password) {
 		
-	HomePage loginPage=new HomePage(driver);
-	loginPage.setUserName(email);
-	loginPage.setPassword(password);
-	loginPage.clickLogin();
+	HomePage homePage=new HomePage(driver);
+	homePage.setUserName(email);
+	homePage.setPassword(password);
+	homePage.clickLogin();
+	boolean element=driver.findElement(By.xpath("//span[text()='Book my lunch']")).isDisplayed();
+	System.out.println(element);
+	if(element)
+	homePage.bookMyLunch.click();
+	else
+	//loginPage.clickLogoutOption();
+	homePage.clickOnLogout();
 	Assert.assertTrue(driver.findElement(By.xpath("//div[@data-pc-section='detail']/preceding-sibling::div")).isDisplayed());
-	workLocation("GIFT", "GIFT", "Regular");
+	//workLocation("GIFT", "GIFT", "Regular");
 	}
 		
 	@Test (priority=2)
@@ -109,10 +119,28 @@ public class LoginAndLogout extends Base {
 	@Test (priority=5)
 	public void verifyLoginWithInvalidPassword() {
 		HomePage loginPage=new HomePage(driver);
-		loginPage.setUserName("admin");
-		loginPage.setPassword("12345666666666666666666666666");
+		loginPage.setUserName("Prakharj");
+		loginPage.setPassword("123456666666666");
 		loginPage.clickLogin();
-	
+		
+		/*
+		
+		boolean txt1=driver.findElement(By.xpath("//label[text()='Menu List']")).isDisplayed();
+		String url=driver.getCurrentUrl();
+		
+		if(txt1)
+		{//loginPage.bookMyLunch.click();	
+		workLocation("GIFT", "GIFT", "Regular");
+		}
+		else
+		
+		if(url=="http://10.10.20.41/auth/login")
+		//homePage.bookMyLunch.click();
+		
+		workLocation("GIFT", "GIFT", "Regular");
+		
+		
+		}
 	/*driver.findElement(By.xpath("//input[@id='username']")).sendKeys("admin");
 	driver.findElement(By.xpath("//input[@type='password']")).sendKeys("1234566666666666");
 	driver.findElement(By.xpath("//span[@class='p-button-label'][1]")).click();
@@ -122,15 +150,18 @@ public class LoginAndLogout extends Base {
 	
 	}
 	
-	@Test (priority=6)
+	@Test (priority=6 )
  	public void verifyLogout()  {
 		HomePage homePage=new HomePage(driver);
 		
 		homePage.setUserName("nagnathg");
 		homePage.setPassword("123456");
 		homePage.clickLogin();
+		boolean element=driver.findElement(By.xpath("//span[text()='Book my lunch']")).isDisplayed();
+		System.out.println(element);
+		if(element)
 		homePage.bookMyLunch.click();
-		
+		else
 		//loginPage.clickLogoutOption();
 		homePage.clickOnLogout();
 		/*
