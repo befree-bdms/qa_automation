@@ -2,6 +2,7 @@ package com.befreebdms.qa.administrator;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
@@ -9,6 +10,8 @@ import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import com.bdms.qa.base.Base;
+import com.bdms.qa.pageobject.DesignationPage;
+import com.bdms.qa.pageobject.HomePage;
 import com.bdms.qa.utils.Utilities;
 
 public class Designation extends Base{
@@ -34,81 +37,79 @@ public class Designation extends Base{
 	@BeforeMethod 
 	public void setUp() throws InterruptedException {
 	
-	driver=initializeBrowserAndOpenApplicationURL(prop.getProperty("browser"));// from get properties Class
-	//driver.get("http://10.10.20.41/auth/login");
-	driver.get(prop.getProperty("url")); //from get properties field
-	driver.manage().deleteAllCookies();
-	driver.findElement(By.xpath("//input[@id='username']")).sendKeys("admin");
-	driver.findElement(By.xpath("//input[@type='password']")).sendKeys("123456");
-	driver.findElement(By.xpath("//span[@class=\"p-button-label\"][1]")).click();
-	Thread.sleep(2000);
-	driver.findElement(By.xpath("//span[text()='Administrator']")).click();
-	Thread.sleep(2000);
-	driver.findElement(By.xpath("//span[text()='Designation']")).click();
-	Thread.sleep(2000);
-	
+		driver=initializeBrowserAndOpenApplicationURL(prop.getProperty("browser"));// from get properties Class
+		driver.get(prop.getProperty("url")); //from get properties field	
+			
+		HomePage homePage=new HomePage(driver);
+		homePage.setUserName("Admin");
+		homePage.setPassword("123456");
+		homePage.clickLogin();
+		PopupHandler();
+		Thread.sleep(1000);
+		homePage.Administrator();
+		homePage.Designation();
 	
 	}
 	
 	@AfterMethod
 	public void tearDown() {
 	
-		driver.findElement(By.xpath("//button[@pstyleclass='@next']")).click();
-		driver.findElement(By.xpath("//li[@id='LOGOUT']")).click();
-	
+		HomePage homePage=new HomePage(driver);
+		homePage.clickOnLogout();
 		driver.quit();
-	
+		
 	}
 	
 	
 	@Test (priority=1, dataProvider="validCredentialsSupplier")
  	public void verifyGroupManagerRights(String page_rights) throws InterruptedException{
 		
+		DesignationPage designationPage=new DesignationPage(driver);
+		designationPage.clickOnFilter();
+		designationPage.inputDesignationName("Group Manager");
+		//Thread.sleep(500);
+		designationPage.editDesignationName();
+		designationPage.clickRights(page_rights);
+		//Thread.sleep(500);
+		WebElement chkBoxView=driver.findElement(By.id("selectAllIsView"));
 		
-		driver.findElement(By.xpath("//button[@icon='pi pi-filter']")).click();
-		driver.findElement(By.xpath("//div[@class='filter-field flex-grow-1']//input")).sendKeys("Group Manager");
-		driver.findElement(By.xpath("//div[@class='flex gap-2 ng-star-inserted']")).click();	
-		driver.findElement(By.xpath("//span[@class='p-element p-dropdown-label p-inputtext ng-star-inserted']")).click();
+		if(!chkBoxView.isSelected()) {
+			designationPage.selectView();
+		}
 		
-		driver.findElement(By.xpath("//input[@class='p-inputtext p-component p-element w-full']")).sendKeys(page_rights);
-		Thread.sleep(1000);
+		WebElement chkBoxAddEdit=driver.findElement(By.id("selectAllIsAddEdit"));
 		
-		boolean view=driver.findElement(By.xpath("//p-checkbox[@id='selectAllIsView']")).isSelected();
-		//Add Validation for checkBoxes
-		if(view!=true) 
-		driver.findElement(By.xpath("//p-checkbox[@id='selectAllIsView']")).click();
+		if(!chkBoxAddEdit.isSelected()) {
+			designationPage.selectAddOrEdit();
+		}
+	
+		designationPage.update();
 		
-		boolean addedit=driver.findElement(By.xpath("//p-checkbox[@id='selectAllIsAddEdit']")).isSelected();
-		if(addedit!=true)
-		driver.findElement(By.xpath("//p-checkbox[@id='selectAllIsAddEdit']")).click();
-		
-		driver.findElement(By.xpath("//span[text()='Update']")).click();
-		
+	
 	}
 	
 	@Test (priority=2, dataProvider="validCredentialsSupplier")
  	public void verifyAssociateTechnicalHead(String page_rights) throws InterruptedException{
 		
 		
-		driver.findElement(By.xpath("//button[@icon='pi pi-filter']")).click();
-		driver.findElement(By.xpath("//div[@class='filter-field flex-grow-1']//input")).sendKeys("Associate Technical Head");
-		driver.findElement(By.xpath("//span[@class='pi pi-wrench p-button-icon ng-star-inserted']")).click();	
-		driver.findElement(By.xpath("//span[@class='p-element p-dropdown-label p-inputtext ng-star-inserted']")).click();
+		DesignationPage designationPage=new DesignationPage(driver);
+		designationPage.clickOnFilter();
+		designationPage.inputDesignationName("Associate Technical Head");
+		designationPage.editDesignationName();
+		designationPage.clickRights(page_rights);
+		WebElement chkBoxView=driver.findElement(By.id("selectAllIsView"));
 		
-		driver.findElement(By.xpath("//input[@class='p-inputtext p-component p-element w-full']")).sendKeys(page_rights);
-		Thread.sleep(1000);
+		if(!chkBoxView.isSelected()) {
+			designationPage.selectView();
+		}
 		
-		boolean view=driver.findElement(By.xpath("//p-checkbox[@id='selectAllIsView']")).isSelected();
-		//Add Validation for checkBoxes
-		if(view!=true) 
-		driver.findElement(By.xpath("//p-checkbox[@id='selectAllIsView']")).click();
+		WebElement chkBoxAddEdit=driver.findElement(By.id("selectAllIsAddEdit"));
 		
-		boolean addedit=driver.findElement(By.xpath("//p-checkbox[@id='selectAllIsAddEdit']")).isSelected();
-		if(addedit!=true)
-		driver.findElement(By.xpath("//p-checkbox[@id='selectAllIsAddEdit']")).click();
-		
-		Thread.sleep(3000);
-		driver.findElement(By.xpath("//span[text()='Update']")).click();
+		if(!chkBoxAddEdit.isSelected()) {
+			designationPage.selectAddOrEdit();
+		}
+	
+		designationPage.update();
 		
 	}
 	
@@ -116,99 +117,102 @@ public class Designation extends Base{
 	@Test (priority=3, dataProvider="validCredentialsSupplier")
  	public void verifyAssociateReviewLead(String page_rights) throws InterruptedException{
 		
+		DesignationPage designationPage=new DesignationPage(driver);
+		designationPage.clickOnFilter();
+		designationPage.inputDesignationName("Associate Review Lead");
+		designationPage.editDesignationName();
+		designationPage.clickRights(page_rights);
 		
-		driver.findElement(By.xpath("//button[@icon='pi pi-filter']")).click();
-		driver.findElement(By.xpath("//div[@class='filter-field flex-grow-1']//input")).sendKeys("Associate Review Lead");
-		driver.findElement(By.xpath("//span[@class='pi pi-wrench p-button-icon ng-star-inserted']")).click();	
-		driver.findElement(By.xpath("//span[@class='p-element p-dropdown-label p-inputtext ng-star-inserted']")).click();
+		WebElement chkBoxView=driver.findElement(By.id("selectAllIsView"));
 		
-		driver.findElement(By.xpath("//input[@class='p-inputtext p-component p-element w-full']")).sendKeys(page_rights);
-		Thread.sleep(1000);
+		if(!chkBoxView.isSelected()) {
+			designationPage.selectView();
+		}
 		
-		boolean view=driver.findElement(By.xpath("//p-checkbox[@id='selectAllIsView']")).isSelected();
-		//Add Validation for checkBoxes
-		if(view!=true) 
-		driver.findElement(By.xpath("//p-checkbox[@id='selectAllIsView']")).click();
+		WebElement chkBoxAddEdit=driver.findElement(By.id("selectAllIsAddEdit"));
 		
-		boolean addedit=driver.findElement(By.xpath("//p-checkbox[@id='selectAllIsAddEdit']")).isSelected();
-		if(addedit!=true)
-		driver.findElement(By.xpath("//p-checkbox[@id='selectAllIsAddEdit']")).click();
-		
-		driver.findElement(By.xpath("//span[text()='Update']")).click();
+		if(!chkBoxAddEdit.isSelected()) {
+			designationPage.selectAddOrEdit();
+		}
+	
+		designationPage.update();
 		
 	}
 	
 	@Test (priority=4, dataProvider="validCredentialsSupplier")
  	public void verifyAssociateQCLead(String page_rights) throws InterruptedException{
 		
+		DesignationPage designationPage=new DesignationPage(driver);
+		designationPage.clickOnFilter();
+		designationPage.inputDesignationName("Associate QC Lead");
+		designationPage.editDesignationName();
+		designationPage.clickRights(page_rights);
 		
-		driver.findElement(By.xpath("//button[@icon='pi pi-filter']")).click();
-		driver.findElement(By.xpath("//div[@class='filter-field flex-grow-1']//input")).sendKeys("Associate QC Lead");
-		driver.findElement(By.xpath("//span[@class='pi pi-wrench p-button-icon ng-star-inserted']")).click();	
-		driver.findElement(By.xpath("//span[@class='p-element p-dropdown-label p-inputtext ng-star-inserted']")).click();
+		WebElement chkBoxView=driver.findElement(By.id("selectAllIsView"));
 		
-		driver.findElement(By.xpath("//input[@class='p-inputtext p-component p-element w-full']")).sendKeys(page_rights);
-		Thread.sleep(1000);
+		if(!chkBoxView.isSelected()) {
+			designationPage.selectView();
+		}
 		
-		boolean view=driver.findElement(By.xpath("//p-checkbox[@id='selectAllIsView']")).isSelected();
-		//Add Validation for checkBoxes
-		if(view!=true) 
-		driver.findElement(By.xpath("//p-checkbox[@id='selectAllIsView']")).click();
+		WebElement chkBoxAddEdit=driver.findElement(By.id("selectAllIsAddEdit"));
 		
-		boolean addedit=driver.findElement(By.xpath("//p-checkbox[@id='selectAllIsAddEdit']")).isSelected();
-		if(addedit!=true)
-		driver.findElement(By.xpath("//p-checkbox[@id='selectAllIsAddEdit']")).click();
+		if(!chkBoxAddEdit.isSelected()) {
+			designationPage.selectAddOrEdit();
+		}
+	
+		designationPage.update();
 		
-		driver.findElement(By.xpath("//span[text()='Update']")).click();
-		
+	
 	}
 	
 	@Test (priority=5, dataProvider="validCredentialsSupplier")
  	public void verifyTechnicalHead(String page_rights) throws InterruptedException{
 		
+		DesignationPage designationPage=new DesignationPage(driver);
+		designationPage.clickOnFilter();
+		designationPage.inputDesignationName("Technical Head");
+		designationPage.editDesignationName();
+		designationPage.clickRights(page_rights);
 		
-		driver.findElement(By.xpath("//button[@icon='pi pi-filter']")).click();
-		driver.findElement(By.xpath("//div[@class='filter-field flex-grow-1']//input")).sendKeys("Technical Head");
-		driver.findElement(By.xpath("//span[@class='pi pi-wrench p-button-icon ng-star-inserted']")).click();	
-		driver.findElement(By.xpath("//span[@class='p-element p-dropdown-label p-inputtext ng-star-inserted']")).click();
+		WebElement chkBoxView=driver.findElement(By.id("selectAllIsView"));
+	
+		if(!chkBoxView.isSelected()) {
+			designationPage.selectView();
+		}
 		
-		driver.findElement(By.xpath("//input[@class='p-inputtext p-component p-element w-full']")).sendKeys(page_rights);
-		Thread.sleep(1000);
+		WebElement chkBoxAddEdit=driver.findElement(By.id("selectAllIsAddEdit"));
 		
-		boolean view=driver.findElement(By.xpath("//p-checkbox[@id='selectAllIsView']")).isSelected();
-		//Add Validation for checkBoxes
-		if(view!=true) 
-		driver.findElement(By.xpath("//p-checkbox[@id='selectAllIsView']")).click();
-		
-		boolean addedit=driver.findElement(By.xpath("//p-checkbox[@id='selectAllIsAddEdit']")).isSelected();
-		if(addedit!=true)
-		driver.findElement(By.xpath("//p-checkbox[@id='selectAllIsAddEdit']")).click();
-		driver.findElement(By.xpath("//span[text()='Update']")).click();
-		
+		if(!chkBoxAddEdit.isSelected()) {
+			designationPage.selectAddOrEdit();
+		}
+	
+		designationPage.update();
+	
 	}
 	
 	@Test (priority=6, dataProvider="validCredentialsSupplier")
  	public void verifyAssociateQCManager(String page_rights) throws InterruptedException{
 		
+		DesignationPage designationPage=new DesignationPage(driver);
+		designationPage.clickOnFilter();
+		designationPage.inputDesignationName("Associate QC Manager");
+		designationPage.editDesignationName();
+		designationPage.clickRights(page_rights);
 		
-		driver.findElement(By.xpath("//button[@icon='pi pi-filter']")).click();
-		driver.findElement(By.xpath("//div[@class='filter-field flex-grow-1']//input")).sendKeys("Associate QC Manager");
-		driver.findElement(By.xpath("//span[@class='pi pi-wrench p-button-icon ng-star-inserted']")).click();	
-		driver.findElement(By.xpath("//span[@class='p-element p-dropdown-label p-inputtext ng-star-inserted']")).click();
+		WebElement chkBoxView=driver.findElement(By.id("selectAllIsView"));
+	
+		if(!chkBoxView.isSelected()) {
+			designationPage.selectView();
+		}
 		
-		driver.findElement(By.xpath("//input[@class='p-inputtext p-component p-element w-full']")).sendKeys(page_rights);
+		WebElement chkBoxAddEdit=driver.findElement(By.id("selectAllIsAddEdit"));
 		
+		if(!chkBoxAddEdit.isSelected()) {
+			designationPage.selectAddOrEdit();
+		}
+	
+		designationPage.update();
 		
-		boolean view=driver.findElement(By.xpath("//p-checkbox[@id='selectAllIsView']")).isSelected();
-		//Add Validation for checkBoxes
-		if(view!=true) 
-		driver.findElement(By.xpath("//p-checkbox[@id='selectAllIsView']")).click();
-		
-		boolean addedit=driver.findElement(By.xpath("//p-checkbox[@id='selectAllIsAddEdit']")).isSelected();
-		if(addedit!=true)
-		driver.findElement(By.xpath("//p-checkbox[@id='selectAllIsAddEdit']")).click();
-		
-		driver.findElement(By.xpath("//span[text()='Update']")).click();
 		
 	}
 	

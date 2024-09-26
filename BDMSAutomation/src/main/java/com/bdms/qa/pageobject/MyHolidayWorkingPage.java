@@ -93,5 +93,53 @@ public class MyHolidayWorkingPage {
 			btnSaveHolidayWorking.click();
 		}
 		
+		@FindBy (xpath="//p-dropdown[@class='p-element p-inputwrapper ng-untouched ng-pristine ng-valid ng-star-inserted p-inputwrapper-filled']")
+		private WebElement employeeNameFilter;
+		@FindBy (xpath="//input[@class='p-dropdown-filter p-inputtext p-component']")
+		private WebElement enterEmployeeName;
+		@FindBy (xpath="//p-dropdownitem[@class='p-element ng-star-inserted']")
+		private WebElement clickOnEmployeeName;
+		
+		public void applyEmployeeNameFileter(String employeeName) {
+			employeeNameFilter.click();
+			enterEmployeeName.sendKeys(employeeName);
+			clickOnEmployeeName.click();
+		}
+		
+		@FindBy (xpath="(//p-button[@ptooltip='Delete'])[1]")
+		WebElement deleteIcon;
+		@FindBy (xpath="//span[text()='Yes']")
+		WebElement yes;
+		
+		public void deleteRequest() {
+			deleteIcon.click();
+			yes.click();
+		}
+		
+		@FindBy (xpath="//p-button[@ptooltip='Leave Approval']")
+		WebElement firstApprove;
+		
+		public void clickOnFirstApporve()
+		{
+			firstApprove.click();
+		}
+		
+		@FindBy (xpath="//textarea[@formcontrolname='comment']")
+		WebElement firstApproveComment;
+		
+		public void inputFirstApproveComment(String test) {
+			firstApproveComment.sendKeys(test);
+		}
+		
+		@FindBy (xpath="//span[text()='Approve']")
+		WebElement approve;
+		
+		public void clickOnApprove() {
+			approve.click();
+		}
+		
+		
+		
+		
 
 }

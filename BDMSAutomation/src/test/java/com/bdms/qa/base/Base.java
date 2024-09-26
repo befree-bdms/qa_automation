@@ -10,6 +10,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Base {
 	
@@ -53,6 +55,53 @@ public class Base {
 		
 	}
 	
+	//############################ Pophandler ##################################
+	public void PopupHandler() {
+		
+		
+		//workLocation("SEZ - Brigade","SEZ - Brigade","regular");
+		 driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(1));
+		 WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(1));
+		 
+	     try {
+	         // Check for popups
+	         boolean bookLunchPresent = isElementPresent(driver, wait, By.xpath("//span[text()='Book my lunch']"));
+	         boolean saveLocationPresent = isElementPresent(driver, wait, By.xpath("//span[text()='Save Location']"));
+
+	         if (bookLunchPresent) {
+	             driver.findElement(By.xpath("//span[text()='Book my lunch']")).click();
+	             System.out.println("Clicked on 'Book Lunch' button.");
+	         }
+
+	         if (saveLocationPresent) {
+	             driver.findElement(By.xpath("//span[text()='Save Location']")).click();
+	             System.out.println("Clicked on 'Save Location' button.");
+	         }
+
+	         if (!bookLunchPresent && !saveLocationPresent) {
+	             proceedToNextMethod();
+	         }
+
+	     } catch (Exception e) {
+	         e.printStackTrace();
+	     } 
+	 }
+
+	 private static boolean isElementPresent(WebDriver driver, WebDriverWait wait, By locator) {
+	     try {
+	         wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+	         return true;
+	     } catch (Exception e) {
+	         return false; // Return false immediately if not found
+	     }
+	 }
+
+	 private static void proceedToNextMethod() {
+	     System.out.println("No popups detected, proceeding to the next method.");
+	     // Add your logic for the next method here
+	 }
+	
+	
 	//+++++++++++++++++++++++++++++ Calendar ++++++++++++++++++++++++++++++++++++++++++++++//
 	
 		public void selectDateIncalendar(String day, String month, String year) {
@@ -75,10 +124,13 @@ public class Base {
 		}
 		
 	}
-		public void selectTodaysDate() {
-			String todaysdate=driver.findElement(By.xpath("//td[contains(@class, 'today')]")).getText();
-			
-		}
+	 
+	   public void selectTodaysDate() { String
+	   todaysdate=driver.findElement(By.xpath("//td[contains(@class, 'today')]")).
+	   getText();
+	   
+	   }
+	 
 			
 		public void workLocation(String Wlocation, String NWlocation, String foodType) {
 									

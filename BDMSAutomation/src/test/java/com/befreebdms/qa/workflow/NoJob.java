@@ -7,12 +7,12 @@ import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import com.bdms.qa.base.Base;
-import com.bdms.qa.pageobject.ConferenceRoomPage;
 import com.bdms.qa.pageobject.HomePage;
+import com.bdms.qa.pageobject.NoJobsPage;
 
-public class ConferenceRoom extends Base{
-
-	public ConferenceRoom() {
+public class NoJob extends Base {
+	
+	public NoJob() {
 		
 		super();  //This method will get the all properties from Base class
 	
@@ -34,9 +34,9 @@ public class ConferenceRoom extends Base{
 	homePage.setUserName("ajay");
 	homePage.setPassword("123456");
 	homePage.clickLogin();
-	Thread.sleep(2000);
+	PopupHandler();
 	homePage.clickOnWorkflow();
-	homePage.clickOnConferenceRoom();
+	homePage.clickOnNoJob();
 	}
 	
 	@AfterMethod
@@ -46,24 +46,18 @@ public class ConferenceRoom extends Base{
 		driver.quit();
 	}
 	
-	
-	@Test (priority=1)
- 	public void verifyBookRecord() throws InterruptedException{
-	
-		ConferenceRoomPage conferenceRoom=new ConferenceRoomPage(driver);
-		conferenceRoom.clickOnBookRecord();
-		conferenceRoom.addLocation("SEZ - brigade");
-		conferenceRoom.addconferenceRoom("kailash");
-		conferenceRoom.addpurposeOfBook();
-		conferenceRoom.addDate();
-		conferenceRoom.inputStartTime("10:00");
-		conferenceRoom.inputEndTime("11:15");
-		conferenceRoom.meetingMemeber();
-		conferenceRoom.clickSave();		
+	@Test
+	public void verifyNoJobs() throws InterruptedException {
+		
+		NoJobsPage noJob=new NoJobsPage(driver);
+		noJob.clickOnAddRecord();
+		noJob.inputStartTime("21:00");
+		noJob.inputEndTime("06:00");
+		noJob.clickSave();
 		Thread.sleep(2000);
-		conferenceRoom.clickOnFree();
-		conferenceRoom.clickOnYes();
-		
-		
-	}	
+		noJob.clickOnBooked();
+		noJob.clickOnYes();
+	}
+	
+
 }

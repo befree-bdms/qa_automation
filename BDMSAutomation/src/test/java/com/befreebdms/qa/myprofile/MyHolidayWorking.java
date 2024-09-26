@@ -25,27 +25,15 @@ public class MyHolidayWorking extends Base {
 		driver=initializeBrowserAndOpenApplicationURL(prop.getProperty("browser"));// from get properties Class
 		//driver.get("http://10.10.20.41/auth/login");
 		driver.get(prop.getProperty("url")); //from get properties field	
-		//driver=initializeBrowserAndOpenApplicationURL("chrome");  //This Line is setup in Base Class [If any doubt go and check the Base class]
-		//driver.get("http://10.10.20.41/auth/login");
-		
 		HomePage homePage=new HomePage(driver);
-		homePage.setUserName("darshant");
+		homePage.setUserName("Darshant");
 		homePage.setPassword("123456");
 		homePage.clickLogin();
+		PopupHandler();
 		Thread.sleep(2000);
 		homePage.clickOnMyProfile();
 		homePage.clickOnMyHolidayWorking();
 		
-	/*	
-		
-		driver.findElement(By.xpath("//input[@id='username']")).sendKeys("admin");
-		driver.findElement(By.xpath("//input[@type='password']")).sendKeys("123456");
-		driver.findElement(By.xpath("//span[@class='p-button-label'][1]")).click();
-		Thread.sleep(2000);
-		driver.findElement(By.xpath("//span[text()='My Profile'][1]")).click();
-		driver.findElement(By.xpath("//span[text()='My Holiday Working']")).click();
-		driver.findElement(By.xpath("//span[text()='Add Record']")).click();
-	*/
 	}
 	
 	@AfterMethod
@@ -64,37 +52,43 @@ public class MyHolidayWorking extends Base {
 		myHolidayWorkingPage.clickOnAddRecord();
 		myHolidayWorkingPage.selectLocation("Baroda");
 		myHolidayWorkingPage.selectHolidayDate();
-		Thread.sleep(500);
+		Thread.sleep(200);
 		selectDateIncalendar("15", "August", "2025");
 		myHolidayWorkingPage.selectEstimatedArrivalTime("20:00");
 		myHolidayWorkingPage.selectEstimatedDepartureTime("05:00");
-		myHolidayWorkingPage.selectTradingName("Brightgreen Pty Ltd");
+		myHolidayWorkingPage.selectTradingName("be FREE Pty Limited");
 		myHolidayWorkingPage.enterReasonForHolidayWorking("Test by Nagnath");
-		
 		myHolidayWorkingPage.saveHolidayWorking();
 	}
+	
+	@Test (priority=2)
+ 	public void verifyDeleteRecordHolidayWorking() throws InterruptedException {
 		
-		/*
-		driver.findElement(By.xpath("//p-dropdown[@formcontrolname='location_id']")).click();
-		driver.findElement(By.xpath("//input[@class='p-dropdown-filter p-inputtext p-component']")).sendKeys("Pune");
-		driver.findElement(By.xpath("//p-dropdownitem[@class='p-element ng-star-inserted']")).click();
-		driver.findElement(By.xpath("//p-calendar[@formcontrolname='date']")).click();
-		Thread.sleep(2000);
-		selectDateIncalendar("15", "August", "2025");
-		
-		
-		driver.findElement(By.xpath("//p-calendar[@formcontrolname='start_time']")).click();
-		driver.findElement(By.xpath("//p-calendar[@formcontrolname='start_time']//input[contains(@class, 'ng-tns-')]")).sendKeys("20:00");
-		Thread.sleep(1000);
-		driver.findElement(By.xpath("//p-calendar[@formcontrolname='end_time']")).click();
-		driver.findElement(By.xpath("//p-calendar[@formcontrolname='end_time']//input[contains(@class, 'ng-tns-')]")).sendKeys("22:00");
-		driver.findElement(By.xpath("//p-dropdown[@formcontrolname='entity_id']")).click();
-		driver.findElement(By.xpath("//input[@class='p-dropdown-filter p-inputtext p-component']")).sendKeys("Brightgreen Pty Ltd");
-		driver.findElement(By.xpath("//p-dropdownitem[@class='p-element ng-star-inserted']")).click();
-		driver.findElement(By.xpath("//textarea[@formcontrolname='notes']")).sendKeys("Yes");
-		driver.findElement(By.xpath("//span[text()='Save']")).click();
+		MyHolidayWorkingPage myHolidayWorkingPage=new MyHolidayWorkingPage(driver);
+		myHolidayWorkingPage.applyEmployeeNameFileter("Darshan Trivedi");
+		myHolidayWorkingPage.deleteRequest();
 		
 	}
-*/
+	
+	@Test (priority=1)
+ 	public void verifyAddRecordrHolidayWorking() throws InterruptedException {
+	
+		MyHolidayWorkingPage myHolidayWorkingPage=new MyHolidayWorkingPage(driver);
+		myHolidayWorkingPage.clickOnAddRecord();
+		myHolidayWorkingPage.selectLocation("Sez - brigade");
+		myHolidayWorkingPage.selectHolidayDate();
+		Thread.sleep(200);
+		selectDateIncalendar("18", "August", "2025");
+		myHolidayWorkingPage.selectEstimatedArrivalTime("22:00");
+		myHolidayWorkingPage.selectEstimatedDepartureTime("05:00");
+		myHolidayWorkingPage.selectTradingName("be FREE Pty Limited");
+		myHolidayWorkingPage.enterReasonForHolidayWorking("Test by Nagnath");
+		myHolidayWorkingPage.saveHolidayWorking();
+	}
+	
+	
+	
+		
+		
 }
 

@@ -6,9 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class ConferenceRoomPage {
-	
 	WebDriver driver;
-	
 	//Constructor
 		public ConferenceRoomPage(WebDriver driver) {
 		this.driver=driver;
@@ -71,7 +69,7 @@ public class ConferenceRoomPage {
 	WebElement selectStartTime;
 	@FindBy (xpath="//p-calendar[@formcontrolname='start_time']//input[contains(@class, 'ng-tns-')]")
 	WebElement StartTime;
-	@FindBy (xpath="//p-calendar[@formcontrolname='end_time']//button[contains(@class, 'ng-tns-')]")
+	@FindBy (xpath="//p-calendar[@formcontrolname='start_time']//button[contains(@class, 'ng-tns-')]")
 	WebElement selectstartTime;
 	
 	public void inputStartTime(String start) {
@@ -116,4 +114,26 @@ public class ConferenceRoomPage {
 	public void clickSave() {
 		save.click();
 	}
+	
+	@FindBy(xpath="(//span[text()='Free'])[1]")
+	WebElement free;
+	
+	public void clickOnFree() {
+		free.click();
+	}
+	
+	@FindBy(xpath="//span[text()='Yes']")
+	WebElement clickOnYesButton;
+	
+	public void clickOnYes() {
+		clickOnYesButton.click();
+	}
+	
+	@FindBy(xpath="//span[text()='No']")
+	WebElement clickOnNoButton;
+	
+	public void clickOnNo() {
+		clickOnNoButton.click();
+	}
+	
 }

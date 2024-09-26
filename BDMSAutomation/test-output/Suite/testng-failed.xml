@@ -6,13 +6,23 @@
   </listeners>
   <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="com.befreebdms.qa.myprofile.ApplyLeaveApproveAndReject">
+      <class name="com.befreebdms.qa.myprofile.MyHolidayWorking">
         <methods>
-          <include name="tearDown"/>
+          <include name="verifyDeleteRecordHolidayWorking"/>
           <include name="setUp"/>
-          <include name="verifyApproveLeave"/>
+          <include name="tearDown"/>
         </methods>
-      </class> <!-- com.befreebdms.qa.myprofile.ApplyLeaveApproveAndReject -->
+      </class> <!-- com.befreebdms.qa.myprofile.MyHolidayWorking -->
+      <class name="com.befreebdms.qa.myprofile.ApplyLeave">
+        <methods>
+          <include name="verifyApplySickLeave"/>
+          <include name="verifyApplyCompOffLeave"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+          <include name="verifyApplyCasualLeave"/>
+          <include name="verifyApplyMaternityLeave"/>
+        </methods>
+      </class> <!-- com.befreebdms.qa.myprofile.ApplyLeave -->
       <class name="com.befreebdms.qa.workflow.ConferenceRoom">
         <methods>
           <include name="tearDown"/>
@@ -20,25 +30,34 @@
           <include name="verifyBookRecord"/>
         </methods>
       </class> <!-- com.befreebdms.qa.workflow.ConferenceRoom -->
-      <class name="com.befreebdms.qa.administrator.Designation">
-        <methods>
-          <include name="verifyTechnicalHead"/>
-          <include name="verifyGroupManagerRights"/>
-          <include name="verifyAssociateQCLead"/>
-          <include name="tearDown"/>
-          <include name="verifyAssociateReviewLead"/>
-          <include name="verifyAssociateQCManager"/>
-          <include name="verifyAssociateTechnicalHead"/>
-          <include name="setUp"/>
-        </methods>
-      </class> <!-- com.befreebdms.qa.administrator.Designation -->
       <class name="com.befreebdms.qa.myprofile.MyLunch">
         <methods>
           <include name="tearDown"/>
-          <include name="verifyAddRecordForMyLunch"/>
           <include name="setUp"/>
+          <include name="verifyAddRecordForMyLunch" invocation-numbers="0"/>
         </methods>
       </class> <!-- com.befreebdms.qa.myprofile.MyLunch -->
+      <class name="com.befreebdms.qa.workflow.NoJob">
+        <methods>
+          <include name="tearDown"/>
+          <include name="setUp"/>
+          <include name="verifyNoJobs"/>
+        </methods>
+      </class> <!-- com.befreebdms.qa.workflow.NoJob -->
+      <class name="com.befreebdms.qa.myprofile.ApplyLeaveApproveAndReject">
+        <methods>
+          <include name="tearDown"/>
+          <include name="setUp"/>
+          <include name="verifyApproveLeave"/>
+        </methods>
+      </class> <!-- com.befreebdms.qa.myprofile.ApplyLeaveApproveAndReject -->
+      <class name="com.befreebdms.qa.administrator.FoodMaster">
+        <methods>
+          <include name="setUp"/>
+          <include name="verifyEmployeeCountFoodMaster"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.befreebdms.qa.administrator.FoodMaster -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

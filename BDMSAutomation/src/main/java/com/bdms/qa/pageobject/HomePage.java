@@ -1,17 +1,23 @@
 package com.bdms.qa.pageobject;
 
+import java.time.Duration;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class HomePage {
 	
 	WebDriver driver;
+	WebDriverWait wait;
 		
 	//Constructor
 		public HomePage(WebDriver driver) {
 		this.driver=driver;
+		this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		PageFactory.initElements(driver, this);
 	}
 	
@@ -53,11 +59,11 @@ public class HomePage {
 		password.sendKeys(pwd);		
 	}
 	
-	@FindBy(xpath="//span[@class='p-button-label'][1]")
+	@FindBy(xpath="//span[text()='Login']")
 	private WebElement Login;
 	
-	public void clickLogin() {		
-		Login.click();		
+	public void clickLogin() {	
+		Login.click();
 	}
 	
 	@FindBy (xpath="//button[@pstyleclass='@next']")
@@ -106,6 +112,50 @@ public class HomePage {
 	
 	public void clickOnConferenceRoom() {
 		conferenceRoom.click();
+	}
+	
+	@FindBy(xpath="(//span[text()='No Job'])[1]")
+	WebElement noJob;
+	
+	public void clickOnNoJob() {
+		noJob.click();
+	}
+	
+	@FindBy(xpath="(//span[text()='Bulk Allocation'])[1]")
+	WebElement bulkAllocation;
+	
+	public void clickOnBulkAllocation() {
+		bulkAllocation.click();
+	}
+	
+	@FindBy(xpath="(//span[text()='Administrator'])[1]")
+	WebElement administrator;
+	
+	public void Administrator() {
+		wait.until(ExpectedConditions.visibilityOf(administrator));
+		administrator.click();
+	}
+	
+	@FindBy(xpath="(//span[text()='Designation'])[1]")
+	WebElement designation;
+	
+	public void Designation() {
+		wait.until(ExpectedConditions.visibilityOf(designation));
+		designation.click();
+	}
+	
+	@FindBy(xpath="(//span[text()='Food Master'])[1]")
+	WebElement foodMaster;
+	
+	public void FoodMaster() {
+		foodMaster.click();
+	}
+	
+	@FindBy(xpath="(//span[text()='My Lunch'])[1]")
+	WebElement myLunch;
+	
+	public void MyLunch() {
+		myLunch.click();
 	}
 	
 	

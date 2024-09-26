@@ -140,11 +140,11 @@ public class MyLeavesPage  {
 		btnSave.click();
 	}
 	
-	@FindBy (id="pn_id_153_label")
+	@FindBy (xpath="//p-dropdown[@class='p-element p-inputwrapper ng-untouched ng-pristine ng-valid ng-star-inserted p-inputwrapper-filled']")
 	private WebElement employeeNameFilter;
 	@FindBy (xpath="//input[@class='p-dropdown-filter p-inputtext p-component']")
 	private WebElement enterEmployeeName;
-	@FindBy (xpath="//p-dropdownitem[@class=\"p-element ng-star-inserted\"]")
+	@FindBy (xpath="//p-dropdownitem[@class='p-element ng-star-inserted']")
 	private WebElement clickOnEmployeeName;
 	
 	public void applyEmployeeNameFileter(String employeeName) {

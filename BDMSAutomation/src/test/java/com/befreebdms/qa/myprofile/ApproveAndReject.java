@@ -8,11 +8,12 @@ import org.testng.asserts.SoftAssert;
 
 import com.bdms.qa.base.Base;
 import com.bdms.qa.pageobject.HomePage;
+import com.bdms.qa.pageobject.MyHolidayWorkingPage;
 import com.bdms.qa.pageobject.MyLeavesPage;
 
-public class ApplyLeaveApproveAndReject extends Base{
+public class ApproveAndReject extends Base{
 	
-	public ApplyLeaveApproveAndReject() {
+	public ApproveAndReject() {
 		
 		super();  //This method will get the all properties from Base class
 	
@@ -34,9 +35,10 @@ public class ApplyLeaveApproveAndReject extends Base{
 	homePage.setUserName("dilip");
 	homePage.setPassword("123456");
 	homePage.clickLogin();
-	Thread.sleep(2000);
+	PopupHandler();
+	Thread.sleep(1000);
 	homePage.clickOnMyProfile();	
-	homePage.clickOnMyLeaves();
+	
 	
 	}
 	
@@ -49,18 +51,44 @@ public class ApplyLeaveApproveAndReject extends Base{
 	
 	@Test 
 	public void verifyApproveLeave() throws InterruptedException {
-		
+		HomePage homePage=new HomePage(driver);
+		homePage.clickOnMyLeaves();
 		MyLeavesPage myLeavesPage=new MyLeavesPage(driver);
 		myLeavesPage.applyEmployeeNameFileter("Darshan Trivedi");
-		/*myLeavesPage.applyLeaveTypeFilter("Sick");
-		myLeavesPage.clickOnStartDateCalendar();
-		selectDateIncalendar("15", "October", "2025");
-		myLeavesPage.clickOnEndDateCalendar();
-		selectDateIncalendar("15", "October", "2025");*/
 		myLeavesPage.clickOnEdit();
 		myLeavesPage.addComment("Approved By DP");
 		myLeavesPage.clickOnApprove();
+	
+	}
+	
+	@Test (priority=1)
+ 	public void verifyPendingforFirstApproveHolidayWorking() throws InterruptedException {
 		
+		HomePage homePage=new HomePage(driver);
+		homePage.clickOnMyHolidayWorking();
+		MyHolidayWorkingPage myHolidayWorkingPage=new MyHolidayWorkingPage(driver);
+		myHolidayWorkingPage.applyEmployeeNameFileter("Darshan Trivedi");
+		myHolidayWorkingPage.clickOnFirstApporve();
+		myHolidayWorkingPage.inputFirstApproveComment("Test Approve");
+		myHolidayWorkingPage.clickOnApprove();
+		
+	}
+	
+	@Test (priority=1)
+ 	public void verifyPendingforSecondApproveHolidayWorking() throws InterruptedException {
+	
+		HomePage homePage=new HomePage(driver);
+		homePage.clickOnMyHolidayWorking();
+		MyHolidayWorkingPage myHolidayWorkingPage=new MyHolidayWorkingPage(driver);
+		myHolidayWorkingPage.applyEmployeeNameFileter("Darshan Trivedi");
+		myHolidayWorkingPage.clickOnFirstApporve();
+		myHolidayWorkingPage.inputFirstApproveComment("Test Approve");
+		myHolidayWorkingPage.clickOnApprove();
+	}
+	
+	@Test (priority=1)
+ 	public void verifyRejectHolidayWorking() throws InterruptedException {
+	
 		
 	}
 }

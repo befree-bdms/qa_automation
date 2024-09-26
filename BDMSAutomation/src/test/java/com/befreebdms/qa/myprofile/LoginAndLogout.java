@@ -1,6 +1,7 @@
 package com.befreebdms.qa.myprofile;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -45,9 +46,9 @@ public class LoginAndLogout extends Base {
 	
 	@AfterMethod
 	public void tearDown() throws InterruptedException {
-		HomePage homePage=new HomePage(driver);
-		homePage.clickOnLogout();
-		Thread.sleep(3000);
+		//HomePage homePage=new HomePage(driver);
+		//homePage.clickOnLogout();
+		//Thread.sleep(3000);
 		driver.quit();
 	}
 	
@@ -59,24 +60,36 @@ public class LoginAndLogout extends Base {
 	homePage.setUserName(email);
 	homePage.setPassword(password);
 	homePage.clickLogin();
-	boolean element=driver.findElement(By.xpath("//span[text()='Book my lunch']")).isDisplayed();
-	System.out.println(element);
-	if(element)
-	homePage.bookMyLunch.click();
-	else
-	//loginPage.clickLogoutOption();
-	homePage.clickOnLogout();
+	PopupHandler();
 	Assert.assertTrue(driver.findElement(By.xpath("//div[@data-pc-section='detail']/preceding-sibling::div")).isDisplayed());
 	//workLocation("GIFT", "GIFT", "Regular");
 	}
 		
 	@Test (priority=2)
-	public void verifyLoginWithInValidCredential() {
+	public void verifyLoginWithInValidCredential() throws InterruptedException {
 	
 		HomePage loginPage=new HomePage(driver);
-		loginPage.setUserName("adminA");
-		loginPage.setPassword("123789");
+		loginPage.setUserName("darshant");
+		loginPage.setPassword("123456");
 		loginPage.clickLogin();
+		
+		PopupHandler();
+		//loginPage.clickOnMyProfile();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//span[text()='View Profile']")).click();
+		driver.findElement(By.xpath("//span[text()='Team Details']")).click();
+
+		
+		
+		
+		
+		WebElement body = driver.findElement(By.tagName("body"));
+
+        // Retrieve the text from the body and print it
+        String allText = body.getText();
+        System.out.println(allText);
+		PopupHandler();
+		       
 		
 	/*driver.findElement(By.xpath("//input[@id='username']")).sendKeys("adminA");
 	driver.findElement(By.xpath("//input[@type='password']")).sendKeys("123789");
@@ -123,31 +136,7 @@ public class LoginAndLogout extends Base {
 		loginPage.setPassword("123456666666666");
 		loginPage.clickLogin();
 		
-		/*
 		
-		boolean txt1=driver.findElement(By.xpath("//label[text()='Menu List']")).isDisplayed();
-		String url=driver.getCurrentUrl();
-		
-		if(txt1)
-		{//loginPage.bookMyLunch.click();	
-		workLocation("GIFT", "GIFT", "Regular");
-		}
-		else
-		
-		if(url=="http://10.10.20.41/auth/login")
-		//homePage.bookMyLunch.click();
-		
-		workLocation("GIFT", "GIFT", "Regular");
-		
-		
-		}
-	/*driver.findElement(By.xpath("//input[@id='username']")).sendKeys("admin");
-	driver.findElement(By.xpath("//input[@type='password']")).sendKeys("1234566666666666");
-	driver.findElement(By.xpath("//span[@class='p-button-label'][1]")).click();
-	*/
-	//softAssert.assertTrue(driver.findElement(By.xpath("//div[@data-pc-section='detail']/preceding-sibling::div")).isDisplayed());
-	//softAssert.assertAll();
-	
 	}
 	
 	@Test (priority=6 )
@@ -157,44 +146,12 @@ public class LoginAndLogout extends Base {
 		homePage.setUserName("nagnathg");
 		homePage.setPassword("123456");
 		homePage.clickLogin();
-		boolean element=driver.findElement(By.xpath("//span[text()='Book my lunch']")).isDisplayed();
-		System.out.println(element);
-		if(element)
-		homePage.bookMyLunch.click();
-		else
-		//loginPage.clickLogoutOption();
-		homePage.clickOnLogout();
-		/*
+		PopupHandler();
 		
-	driver.findElement(By.xpath("//input[@id='username']")).sendKeys("admin");
-	driver.findElement(By.xpath("//input[@type='password']")).sendKeys("123456");
-	driver.findElement(By.xpath("//span[@class='p-button-label'][1]")).click();
-	driver.findElement(By.xpath("//button[@pstyleclass='@next']")).click();
-	driver.findElement(By.xpath("//li[@id='LOGOUT']")).click();
-	softAssert.assertTrue(driver.findElement(By.xpath("//p[text()='Welcome to the ']")).isDisplayed());
-	softAssert.assertAll();*/
+		softAssert.assertTrue(driver.findElement(By.xpath("//p[text()='Welcome to the ']")).isDisplayed());
+		softAssert.assertAll();
 	
 	}
 	
-	/*@Test (priority=7, dataProvider="validCredentialsSupplier")//
- 	public void verifyLogoutWithPunchout(String email, String password) {
-		//public void verifyLogoutWithPunchout() {	
-	driver.findElement(By.xpath("//input[@id='username']")).sendKeys(email);
-	driver.findElement(By.xpath("//input[@type='password']")).sendKeys(password);
-	driver.findElement(By.xpath("//span[@class='p-button-label'][1]")).click();
-	if(driver.findElement(By.xpath("//button[@label='Save Location']/span")).isDisplayed()) {
-		
-		driver.findElement(By.xpath("//button[@label='Save Location']/span")).click();
-		
-	}
-	else {	
-			driver.findElement(By.xpath("//button[@pstyleclass='@next']")).click();
-			driver.findElement(By.xpath("//span[text()='Logout with Punch Out']")).click();
-			softAssert.assertTrue(driver.findElement(By.xpath("//span[text()='Yes, Punch Out']")).isDisplayed());
-			driver.findElement(By.xpath("//span[text()='Yes, Punch Out']")).click();
-			softAssert.assertTrue(driver.findElement(By.xpath("//*[contains(text(), 'successfully logged out')]")).isDisplayed());
-			softAssert.assertAll();
-		 }
 	
-	}*/
 }
