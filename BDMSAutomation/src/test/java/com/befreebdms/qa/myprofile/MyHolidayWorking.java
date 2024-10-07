@@ -26,11 +26,11 @@ public class MyHolidayWorking extends Base {
 		//driver.get("http://10.10.20.41/auth/login");
 		driver.get(prop.getProperty("url")); //from get properties field	
 		HomePage homePage=new HomePage(driver);
-		homePage.setUserName("Darshant");
+		homePage.setUserName("Ajay");
 		homePage.setPassword("123456");
 		homePage.clickLogin();
 		PopupHandler();
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		homePage.clickOnMyProfile();
 		homePage.clickOnMyHolidayWorking();
 		
@@ -51,6 +51,7 @@ public class MyHolidayWorking extends Base {
 		MyHolidayWorkingPage myHolidayWorkingPage=new MyHolidayWorkingPage(driver);
 		myHolidayWorkingPage.clickOnAddRecord();
 		myHolidayWorkingPage.selectLocation("Baroda");
+		Thread.sleep(100);
 		myHolidayWorkingPage.selectHolidayDate();
 		Thread.sleep(200);
 		selectDateIncalendar("15", "August", "2025");
@@ -76,6 +77,7 @@ public class MyHolidayWorking extends Base {
 		MyHolidayWorkingPage myHolidayWorkingPage=new MyHolidayWorkingPage(driver);
 		myHolidayWorkingPage.clickOnAddRecord();
 		myHolidayWorkingPage.selectLocation("Sez - brigade");
+		Thread.sleep(100);
 		myHolidayWorkingPage.selectHolidayDate();
 		Thread.sleep(200);
 		selectDateIncalendar("18", "August", "2025");

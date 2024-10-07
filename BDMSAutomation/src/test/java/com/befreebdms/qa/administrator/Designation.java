@@ -67,10 +67,10 @@ public class Designation extends Base{
 		DesignationPage designationPage=new DesignationPage(driver);
 		designationPage.clickOnFilter();
 		designationPage.inputDesignationName("Group Manager");
-		//Thread.sleep(500);
+		Thread.sleep(100);
 		designationPage.editDesignationName();
 		designationPage.clickRights(page_rights);
-		//Thread.sleep(500);
+		Thread.sleep(100);
 		WebElement chkBoxView=driver.findElement(By.id("selectAllIsView"));
 		
 		if(!chkBoxView.isSelected()) {
@@ -101,12 +101,16 @@ public class Designation extends Base{
 		
 		if(!chkBoxView.isSelected()) {
 			designationPage.selectView();
+		}else {
+			designationPage.selectView();
 		}
 		
 		WebElement chkBoxAddEdit=driver.findElement(By.id("selectAllIsAddEdit"));
 		
 		if(!chkBoxAddEdit.isSelected()) {
 			designationPage.selectAddOrEdit();
+		}else {
+			designationPage.selectView();
 		}
 	
 		designationPage.update();
@@ -127,11 +131,15 @@ public class Designation extends Base{
 		
 		if(!chkBoxView.isSelected()) {
 			designationPage.selectView();
+		}else {
+			designationPage.selectView();
 		}
 		
 		WebElement chkBoxAddEdit=driver.findElement(By.id("selectAllIsAddEdit"));
 		
 		if(!chkBoxAddEdit.isSelected()) {
+			designationPage.selectAddOrEdit();
+		}else {
 			designationPage.selectAddOrEdit();
 		}
 	
@@ -152,11 +160,15 @@ public class Designation extends Base{
 		
 		if(!chkBoxView.isSelected()) {
 			designationPage.selectView();
+		}else {
+			designationPage.selectView();
 		}
 		
 		WebElement chkBoxAddEdit=driver.findElement(By.id("selectAllIsAddEdit"));
 		
 		if(!chkBoxAddEdit.isSelected()) {
+			designationPage.selectAddOrEdit();
+		}else {
 			designationPage.selectAddOrEdit();
 		}
 	
@@ -178,11 +190,15 @@ public class Designation extends Base{
 	
 		if(!chkBoxView.isSelected()) {
 			designationPage.selectView();
+		}else {
+			designationPage.selectView();
 		}
 		
 		WebElement chkBoxAddEdit=driver.findElement(By.id("selectAllIsAddEdit"));
 		
 		if(!chkBoxAddEdit.isSelected()) {
+			designationPage.selectAddOrEdit();
+		}else {
 			designationPage.selectAddOrEdit();
 		}
 	
@@ -203,11 +219,15 @@ public class Designation extends Base{
 	
 		if(!chkBoxView.isSelected()) {
 			designationPage.selectView();
+		}else {
+			designationPage.selectView();
 		}
 		
 		WebElement chkBoxAddEdit=driver.findElement(By.id("selectAllIsAddEdit"));
 		
 		if(!chkBoxAddEdit.isSelected()) {
+			designationPage.selectAddOrEdit();
+		}else {
 			designationPage.selectAddOrEdit();
 		}
 	

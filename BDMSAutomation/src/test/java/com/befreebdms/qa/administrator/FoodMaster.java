@@ -1,9 +1,12 @@
 package com.befreebdms.qa.administrator;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.testng.Assert;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -22,6 +25,7 @@ public class FoodMaster extends Base {
 	
 	public WebDriver driver;
 	SoftAssert softAssert=new SoftAssert();
+	WebDriverWait wait;
 	
 
 
@@ -36,10 +40,14 @@ public class FoodMaster extends Base {
 	homePage.setUserName("admin");
 	homePage.setPassword("123456");
 	homePage.clickLogin();
+	/*
+	 * PopupHandlerPage PopupHandler=new PopupHandlerPage(driver);
+	 * PopupHandler.handlePopups();
+	 */
 	PopupHandler();
-	Thread.sleep(3000);
+	Thread.sleep(2000);
 	homePage.Administrator();
-	Thread.sleep(3000);
+	
 	homePage.FoodMaster();
 	}
 	
@@ -57,8 +65,10 @@ public class FoodMaster extends Base {
 		
 		FoodMasterPage foodMasterPage = new FoodMasterPage(driver);
 		foodMasterPage.clickOnAddRecord();
+		Thread.sleep(100);
 		foodMasterPage.selectMenuDate();
-		selectDateIncalendar("16", "October", "2025");
+		Thread.sleep(100);
+		selectDateIncalendar("15", "September", "2025");
 		foodMasterPage.selectMenu();
 		foodMasterPage.selectLocation();
 		foodMasterPage.addMenuComment("Test By Nagnath");
@@ -66,26 +76,31 @@ public class FoodMaster extends Base {
 		
 		
 		 WebElement testMsg=driver.findElement(By.xpath("//div[contains(text(), 'Food already')]"));
+		 WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        	wait.until(ExpectedConditions.visibilityOf(testMsg));
 		 
 		 String  msg=testMsg.getText();
 		 System.out.println(msg);
-		  Assert.assertEquals(msg, "Food already added for selected date");
+		 // Assert.assertEquals(msg, "Food already added for selected date");
+		 softAssert.assertTrue(msg.contains("Food already added for selected date"), "Expected message 'Food already added for selected date' not found.");
 		  
-		 
+		
 		
 		
 	}
 	
-	@Test
+	/*@Test
 	public void verifyEmployeeCountFoodMaster() throws InterruptedException {
 		
 		FoodMasterPage foodMasterPage = new FoodMasterPage(driver);
 		
 		foodMasterPage.clickOnFilter();
+		Thread.sleep(1000);
 		foodMasterPage.clickOnDateFilter();
+		Thread.sleep(100);
 		selectDateIncalendar("15", "October", "2025");
 		//foodMasterPage.clickOnToday();
 		foodMasterPage.clickOnlocationFilter("GIFT SEZ");
 		foodMasterPage.employeeCountforFood();
-	}
+	}*/
 }

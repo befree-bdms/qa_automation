@@ -11,18 +11,17 @@
           <include name="verifyDeleteRecordHolidayWorking"/>
           <include name="setUp"/>
           <include name="tearDown"/>
+          <include name="verifyAddRecordrHolidayWorking"/>
         </methods>
       </class> <!-- com.befreebdms.qa.myprofile.MyHolidayWorking -->
-      <class name="com.befreebdms.qa.myprofile.ApplyLeave">
+      <class name="com.befreebdms.qa.workflow.BulkAllocation">
         <methods>
-          <include name="verifyApplySickLeave"/>
-          <include name="verifyApplyCompOffLeave"/>
+          <include name="verifyBulkAllocation2"/>
           <include name="setUp"/>
+          <include name="verifyBulkDeAllocation"/>
           <include name="tearDown"/>
-          <include name="verifyApplyCasualLeave"/>
-          <include name="verifyApplyMaternityLeave"/>
         </methods>
-      </class> <!-- com.befreebdms.qa.myprofile.ApplyLeave -->
+      </class> <!-- com.befreebdms.qa.workflow.BulkAllocation -->
       <class name="com.befreebdms.qa.workflow.ConferenceRoom">
         <methods>
           <include name="tearDown"/>
@@ -33,8 +32,8 @@
       <class name="com.befreebdms.qa.myprofile.MyLunch">
         <methods>
           <include name="tearDown"/>
-          <include name="setUp"/>
           <include name="verifyAddRecordForMyLunch" invocation-numbers="0"/>
+          <include name="setUp"/>
         </methods>
       </class> <!-- com.befreebdms.qa.myprofile.MyLunch -->
       <class name="com.befreebdms.qa.workflow.NoJob">
@@ -44,20 +43,6 @@
           <include name="verifyNoJobs"/>
         </methods>
       </class> <!-- com.befreebdms.qa.workflow.NoJob -->
-      <class name="com.befreebdms.qa.myprofile.ApplyLeaveApproveAndReject">
-        <methods>
-          <include name="tearDown"/>
-          <include name="setUp"/>
-          <include name="verifyApproveLeave"/>
-        </methods>
-      </class> <!-- com.befreebdms.qa.myprofile.ApplyLeaveApproveAndReject -->
-      <class name="com.befreebdms.qa.administrator.FoodMaster">
-        <methods>
-          <include name="setUp"/>
-          <include name="verifyEmployeeCountFoodMaster"/>
-          <include name="tearDown"/>
-        </methods>
-      </class> <!-- com.befreebdms.qa.administrator.FoodMaster -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

@@ -35,7 +35,7 @@ public class MyLeavesPage  {
 	@FindBy (xpath="//*[@class='p-float-label']/child::p-dropdown[@formcontrolname='leave_type']")
 	private WebElement leaveType;
 	
-	@FindBy (xpath="//input[@class=\"p-dropdown-filter p-inputtext p-component\"]")
+	@FindBy (xpath="//input[@class='p-dropdown-filter p-inputtext p-component']")
 	private WebElement enterLeaveType;
 	
 	@FindBy(xpath="//p-dropdownitem[@class='p-element ng-star-inserted']")
@@ -129,6 +129,7 @@ public class MyLeavesPage  {
 	}
 	
 	public void clickOnIfDue(String dueComment) {
+		
 		ifDue.sendKeys(dueComment);
 	}
 	

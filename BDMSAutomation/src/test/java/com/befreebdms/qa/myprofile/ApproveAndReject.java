@@ -49,7 +49,7 @@ public class ApproveAndReject extends Base{
 		driver.quit();
 	}
 	
-	@Test 
+	@Test (priority=1)
 	public void verifyApproveLeave() throws InterruptedException {
 		HomePage homePage=new HomePage(driver);
 		homePage.clickOnMyLeaves();
@@ -61,7 +61,7 @@ public class ApproveAndReject extends Base{
 	
 	}
 	
-	@Test (priority=1)
+	@Test (priority=2)
  	public void verifyPendingforFirstApproveHolidayWorking() throws InterruptedException {
 		
 		HomePage homePage=new HomePage(driver);
@@ -74,7 +74,7 @@ public class ApproveAndReject extends Base{
 		
 	}
 	
-	@Test (priority=1)
+	@Test (priority=3)
  	public void verifyPendingforSecondApproveHolidayWorking() throws InterruptedException {
 	
 		HomePage homePage=new HomePage(driver);
@@ -86,9 +86,5 @@ public class ApproveAndReject extends Base{
 		myHolidayWorkingPage.clickOnApprove();
 	}
 	
-	@Test (priority=1)
- 	public void verifyRejectHolidayWorking() throws InterruptedException {
 	
-		
-	}
 }

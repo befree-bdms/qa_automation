@@ -43,14 +43,10 @@ public class MyLunch extends Base {
 		homePage.setPassword("123456");
 		homePage.clickLogin();
 		PopupHandler();
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		homePage.clickOnMyProfile();
-		Thread.sleep(1000);
-		
 		homePage.MyLunch();
-		Thread.sleep(1000);
-		
-		
+				
 	}
 	
 	@AfterMethod
@@ -68,8 +64,10 @@ public class MyLunch extends Base {
 		
 		MyLunchPage myLunch= new MyLunchPage(driver);
 		myLunch.clickOnAddRecord();
+		Thread.sleep(100);
 		myLunch.clickOnMenuDate();
-		selectDateIncalendar("26", "September", "2024");
+		Thread.sleep(100);
+		selectDateIncalendar("08", "October", "2024");
 		myLunch.clickOnUserName(empname);
 		myLunch.clickOnLocation("Sez - Brigade");
 		myLunch.LunchType("jain");

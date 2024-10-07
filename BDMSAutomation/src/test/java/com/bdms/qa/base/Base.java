@@ -58,7 +58,6 @@ public class Base {
 	//############################ Pophandler ##################################
 	public void PopupHandler() {
 		
-		
 		//workLocation("SEZ - Brigade","SEZ - Brigade","regular");
 		 driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(1));
 		 WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(1));
@@ -125,10 +124,9 @@ public class Base {
 		
 	}
 	 
-	   public void selectTodaysDate() { String
-	   todaysdate=driver.findElement(By.xpath("//td[contains(@class, 'today')]")).
-	   getText();
-	   
+	   public void selectTodaysDate() { 
+		   String todaysdate=driver.findElement(By.xpath("//td[contains(@class, 'today')]")).getText();
+		   System.out.println(todaysdate);
 	   }
 	 
 			

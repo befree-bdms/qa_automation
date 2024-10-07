@@ -121,11 +121,13 @@ public class HomePage {
 		noJob.click();
 	}
 	
-	@FindBy(xpath="(//span[text()='Bulk Allocation'])[1]")
+	@FindBy(xpath="(//span[text()='Bulk Allocation'])")
 	WebElement bulkAllocation;
 	
 	public void clickOnBulkAllocation() {
+		wait.until(ExpectedConditions.visibilityOf(bulkAllocation));
 		bulkAllocation.click();
+		
 	}
 	
 	@FindBy(xpath="(//span[text()='Administrator'])[1]")
@@ -157,6 +159,23 @@ public class HomePage {
 	public void MyLunch() {
 		myLunch.click();
 	}
+	
+	@FindBy(xpath="(//span[text()='Workflow'])[1]")
+	WebElement workFlow;
+	
+	public void WorkFlow() {
+		wait.until(ExpectedConditions.visibilityOf(workFlow));
+		workFlow.click();
+	}
+	
+	@FindBy(xpath="//span[text()='Pending Ticket']")
+	WebElement pendingTicket;
+	
+	public void PendingTicket() {
+		wait.until(ExpectedConditions.visibilityOf(pendingTicket));
+		pendingTicket.click();
+	}
+	
 	
 	
 	

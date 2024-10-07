@@ -60,16 +60,7 @@ public class MyListner implements ITestListener {
 			
 			e.printStackTrace();
 		}
-		/*File srcScreenshot=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-		String destinationScreenshotPath= System.getProperty("user.dir")+"\\Screenshots"+".png";
-		
-		try {
-			FileHandler.copy(srcScreenshot, new File(destinationScreenshotPath));
-		} catch (IOException e) {
-			
-			e.printStackTrace();
-		}*/
-		
+				
 		String destinationScreenshotPath= Utilities.captureScreenshot(driver, result.getName());
 		extentTest.addScreenCaptureFromPath(destinationScreenshotPath);
 		extentTest.log(Status.INFO,result.getThrowable());

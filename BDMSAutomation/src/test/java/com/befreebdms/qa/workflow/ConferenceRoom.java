@@ -34,6 +34,7 @@ public class ConferenceRoom extends Base{
 	homePage.setUserName("ajay");
 	homePage.setPassword("123456");
 	homePage.clickLogin();
+	PopupHandler();
 	Thread.sleep(2000);
 	homePage.clickOnWorkflow();
 	homePage.clickOnConferenceRoom();
@@ -53,9 +54,11 @@ public class ConferenceRoom extends Base{
 		ConferenceRoomPage conferenceRoom=new ConferenceRoomPage(driver);
 		conferenceRoom.clickOnBookRecord();
 		conferenceRoom.addLocation("SEZ - brigade");
-		conferenceRoom.addconferenceRoom("kailash");
+		conferenceRoom.addconferenceRoom("Girnar");
 		conferenceRoom.addpurposeOfBook();
+		Thread.sleep(100);
 		conferenceRoom.addDate();
+		Thread.sleep(100);
 		conferenceRoom.inputStartTime("10:00");
 		conferenceRoom.inputEndTime("11:15");
 		conferenceRoom.meetingMemeber();

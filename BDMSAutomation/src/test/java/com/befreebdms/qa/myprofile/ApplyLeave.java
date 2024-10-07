@@ -6,7 +6,6 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
 
 import com.bdms.qa.base.Base;
 import com.bdms.qa.pageobject.HomePage;
@@ -20,7 +19,7 @@ public class ApplyLeave extends Base{
 	}
 	
 	public WebDriver driver;
-	SoftAssert softAssert=new SoftAssert();
+	//SoftAssert softAssert=new SoftAssert();
 	
 	
 	@BeforeMethod
@@ -31,7 +30,7 @@ public class ApplyLeave extends Base{
 	driver.get(prop.getProperty("url")); //from get properties field	
 		
 	HomePage homePage=new HomePage(driver);
-	homePage.setUserName("darshand");
+	homePage.setUserName("darshant");
 	homePage.setPassword("123456");
 	homePage.clickLogin();
 	PopupHandler();
@@ -54,14 +53,20 @@ public class ApplyLeave extends Base{
 	
 		MyLeavesPage myLeavesPage=new MyLeavesPage(driver);
 		myLeavesPage.clickOnLeaveType("Casual");
+		Thread.sleep(100);
 		myLeavesPage.clickOnFromDate();
+		Thread.sleep(100);
 		selectDateIncalendar("15", "October", "2025");
-		Thread.sleep(200);
+		Thread.sleep(100);
 		myLeavesPage.clickOnToDate();
-		selectDateIncalendar("18", "October", "2025");
+		Thread.sleep(100);
+		selectDateIncalendar("15", "October", "2025");
 		myLeavesPage.clickOnInformTeamIncharge("Yes");
+		Thread.sleep(100);
 		myLeavesPage.clickOnWeeklyTaskList("No");
+		Thread.sleep(100);
 		myLeavesPage.clickOnWasThereAnythingDue("Yes");
+		Thread.sleep(100);
 		myLeavesPage.clickOnIfDue("Test");
 		myLeavesPage.clickOnReasonForLeave("Test By Nagnath");
 		myLeavesPage.clickOnSave();
@@ -76,14 +81,21 @@ public class ApplyLeave extends Base{
 		MyLeavesPage myLeavesPage=new MyLeavesPage(driver);
 		
 		myLeavesPage.clickOnLeaveType("Comp-off");
-		myLeavesPage.clickOnFromDate();
+		Thread.sleep(100);
+		myLeavesPage.clickOnFromDate();		
+		Thread.sleep(100);
 		selectDateIncalendar("15", "October", "2025");
-		Thread.sleep(200);
+		Thread.sleep(100);
 		myLeavesPage.clickOnToDate();
+		Thread.sleep(100);
 		selectDateIncalendar("15", "October", "2025");
+		Thread.sleep(100);
 		myLeavesPage.clickOnInformTeamIncharge("Yes");
+		Thread.sleep(100);
 		myLeavesPage.clickOnWeeklyTaskList("No");
+		Thread.sleep(100);
 		myLeavesPage.clickOnWasThereAnythingDue("Yes");
+		Thread.sleep(100);
 		myLeavesPage.clickOnIfDue("Test");
 		myLeavesPage.clickOnReasonForLeave("Test By Nagnath");
 		myLeavesPage.clickOnSave();
@@ -98,14 +110,21 @@ public class ApplyLeave extends Base{
 		MyLeavesPage myLeavesPage=new MyLeavesPage(driver);
 		
 		myLeavesPage.clickOnLeaveType("Sick");
+		Thread.sleep(100);
 		myLeavesPage.clickOnFromDate();
+		Thread.sleep(100);
 		selectDateIncalendar("15", "October", "2024");
-		Thread.sleep(200);
+		Thread.sleep(100);
 		myLeavesPage.clickOnToDate();
+		Thread.sleep(100);
 		selectDateIncalendar("18", "October", "2024");
+		Thread.sleep(100);
 		myLeavesPage.clickOnInformTeamIncharge("Yes");
+		Thread.sleep(100);
 		myLeavesPage.clickOnWeeklyTaskList("No");
+		Thread.sleep(100);
 		myLeavesPage.clickOnWasThereAnythingDue("Yes");
+		Thread.sleep(100);
 		myLeavesPage.clickOnIfDue("Test");
 		myLeavesPage.clickOnReasonForLeave("Test By Nagnath");
 		myLeavesPage.clickOnSave();
@@ -121,14 +140,21 @@ public class ApplyLeave extends Base{
 		MyLeavesPage myLeavesPage=new MyLeavesPage(driver);
 		
 		myLeavesPage.clickOnLeaveType("Maternity");
+		Thread.sleep(100);
 		myLeavesPage.clickOnFromDate();
+		Thread.sleep(100);
 		selectDateIncalendar("15", "October", "2025");
 		Thread.sleep(200);
 		myLeavesPage.clickOnToDate();
+		Thread.sleep(100);
 		selectDateIncalendar("15", "October", "2025");
+		Thread.sleep(200);
 		myLeavesPage.clickOnInformTeamIncharge("Yes");
+		Thread.sleep(100);
 		myLeavesPage.clickOnWeeklyTaskList("No");
+		Thread.sleep(100);
 		myLeavesPage.clickOnWasThereAnythingDue("Yes");
+		Thread.sleep(100);
 		myLeavesPage.clickOnIfDue("Test");
 		myLeavesPage.clickOnReasonForLeave("Test By Nagnath");
 		myLeavesPage.clickOnSave();
