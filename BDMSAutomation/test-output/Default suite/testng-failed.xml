@@ -3,14 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.befreebdms.qa.myprofile.ApproveAndReject">
+      <class name="com.befreebdms.qa.hr.AttendanceSummary">
         <methods>
-          <include name="verifyPendingforSecondApproveHolidayWorking"/>
-          <include name="verifyPendingforFirstApproveHolidayWorking"/>
           <include name="tearDown"/>
           <include name="setUp"/>
+          <include name="verifyAddTimesheet"/>
         </methods>
-      </class> <!-- com.befreebdms.qa.myprofile.ApproveAndReject -->
+      </class> <!-- com.befreebdms.qa.hr.AttendanceSummary -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
